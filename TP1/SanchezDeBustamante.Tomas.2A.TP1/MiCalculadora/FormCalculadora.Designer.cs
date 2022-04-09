@@ -1,7 +1,7 @@
 ﻿
 namespace MiCalculadora
 {
-    partial class Form1
+    partial class FormCalculadora
     {
         /// <summary>
         ///  Required designer variable.
