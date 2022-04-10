@@ -30,16 +30,37 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            this.lblResultado.Text = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text).ToString();
-            
+            double numero1;
+            double numero2;
+
+
+
+            // comentar todas las funciones
             // validar que la ecuacion este bien
-            //this.lstOperaciones.Items.Insert(0,$"{this.txtNumero1.Text} {this.cmbOperador.Text} {this.txtNumero2.Text} = {this.lblResultado.Text}");
-            this.lstOperaciones.Items.Add($"{this.txtNumero1.Text} {this.cmbOperador.Text} {this.txtNumero2.Text} = {this.lblResultado.Text}");
-            this.lstOperaciones.SelectedIndex = this.lstOperaciones.Items.Count - 1;
-
             // validar todo, numeros negativos, etc
-            // pasar data de ultima operacion
 
+            if (double.TryParse(this.txtNumero1.Text, out numero1) == false)
+            {
+                MessageBox.Show("Numero 1 incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (this.cmbOperador.Text == "")
+            {
+                MessageBox.Show("Operador vacio", "Alerta", MessageBoxButtons.OK ,MessageBoxIcon.Exclamation);
+            }
+            else if (double.TryParse(this.txtNumero2.Text, out numero2) == false)
+            {
+                MessageBox.Show("Numero 2 incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (this.cmbOperador.Text == "/" && numero2 == 0)
+            {
+                MessageBox.Show("No se puede dividir por 0", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.lblResultado.Text = Operar(this.txtNumero1.Text, this.txtNumero2.Text, this.cmbOperador.Text).ToString(); 
+                this.lstOperaciones.Items.Add($"{this.txtNumero1.Text} {this.cmbOperador.Text} {this.txtNumero2.Text} = {this.lblResultado.Text}");
+                this.lstOperaciones.SelectedIndex = this.lstOperaciones.Items.Count - 1;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -54,14 +75,14 @@ namespace MiCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            // hacer
-
+            Operando resultado = new Operando();
+            this.lblResultado.Text = resultado.DecimalBinario(this.lblResultado.Text);
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            // hacer
-
+            Operando resultado = new Operando();
+            this.lblResultado.Text = resultado.BinarioDecimal(this.lblResultado.Text);
         }
 
         private void Limpiar()
