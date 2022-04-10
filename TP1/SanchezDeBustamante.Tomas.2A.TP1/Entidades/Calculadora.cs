@@ -6,9 +6,32 @@ namespace Entidades
     {
         public double Operar(Operando num1, Operando num2, char operador)
         {
-            // hacer
+            double resultado;
+            operador = ValidarOperador(operador);
 
-            return 0;
+            switch (operador)
+            {
+                case '+':
+                    resultado = num1 + num2;
+                    break;
+                case '-':
+                    resultado = num1 - num2;
+                    break;
+                case '/':
+                    resultado = num1 / num2;
+                    break;
+                case '*':
+                    resultado = num1 * num2;
+                    break;
+                default:
+                    resultado = 0;
+
+                    Console.WriteLine("Esto no tiene que pasar");
+
+                    break;
+            }
+
+            return resultado;
         }
 
         /// <summary>

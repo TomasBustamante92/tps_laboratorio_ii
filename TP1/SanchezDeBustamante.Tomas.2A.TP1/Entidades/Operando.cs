@@ -17,14 +17,12 @@ namespace Entidades
 
         public Operando(double numero) : this()
         {
-            // hacer
-
+            this.numero = numero;
         }
 
         public Operando(string strNumero) : this()
         {
-            // hacer
-
+            this.Numero = strNumero;
         }
 
         private string Numero
@@ -34,25 +32,55 @@ namespace Entidades
 
         public string BinarioDecimal(string binario)
         {
-            // hacer
+            double resultado = 0;
+            int cantidadCaracteres;
 
-            return "";
+            if(EsBinario(binario))
+            {
+                cantidadCaracteres = binario.Length;
+                foreach (char c in binario)
+                {
+                    cantidadCaracteres--;
+                    if(c == '1')
+                    {
+                        resultado += (int)Math.Pow(2, cantidadCaracteres);
+                    }
+                }
 
+                return resultado.ToString();
+            }
+            else
+            {
+                return "Valor inválido";
+            }
         }
 
         public string DecimalBinario(double numero)
         {
-            // hacer
+            string valorBinario = "";
+            int division = (int)numero;
+            int modulo;
 
-            return "";
+            if(division > 0)
+            {
+                do
+                {
+                    modulo = division % 2;
+                    division /= 2;
+                    valorBinario = modulo.ToString() + valorBinario;
+                } while (division > 0);
+            }
+            else
+            {
+                valorBinario = "Valor inválido";
+            }
 
+            return valorBinario;
         }
 
         public string DecimalBinario(string numero)
         {
-            // hacer
-
-            return "";
+            return DecimalBinario(ValidarOperando(numero));
         }
 
         private bool EsBinario(string binario)
@@ -108,6 +136,5 @@ namespace Entidades
                 return 0;
             }
         }
-
     }
 }

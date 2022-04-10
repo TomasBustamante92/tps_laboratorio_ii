@@ -60,6 +60,7 @@ namespace MiCalculadora
             this.btnCerrar.TabIndex = 7;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnConvertirABinario
             // 
@@ -70,6 +71,7 @@ namespace MiCalculadora
             this.btnConvertirABinario.TabIndex = 8;
             this.btnConvertirABinario.Text = "Convertir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = true;
+            this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
             // 
             // btnConvertirADecimal
             // 
@@ -80,6 +82,7 @@ namespace MiCalculadora
             this.btnConvertirADecimal.TabIndex = 9;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
             this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // btnLimpiar
             // 
@@ -90,6 +93,7 @@ namespace MiCalculadora
             this.btnLimpiar.TabIndex = 6;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnOperar
             // 
@@ -160,6 +164,7 @@ namespace MiCalculadora
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Tomas Sanchez de Bustamante del curso 2°A";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCalculadora_FormClosing);
             this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
