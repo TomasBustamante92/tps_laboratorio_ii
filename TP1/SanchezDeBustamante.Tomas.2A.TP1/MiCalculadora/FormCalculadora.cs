@@ -18,5 +18,18 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
+        private void FormCalculadora_Load(object sender, EventArgs e)
+        {
+            this.cmbOperador.Items.Add("");
+            this.cmbOperador.Items.Add("+");
+            this.cmbOperador.Items.Add("-");
+            this.cmbOperador.Items.Add("*");
+            this.cmbOperador.Items.Add("/");
+        }
+
+        private void btnOperar_Click(object sender, EventArgs e)
+        {
+            this.lblResultado.Text = this.txtNumero1.Text;
+        }
     }
 }
