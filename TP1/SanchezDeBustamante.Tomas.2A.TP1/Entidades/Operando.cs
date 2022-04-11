@@ -69,6 +69,7 @@ namespace Entidades
         {
             string valorBinario = "";
             int division = (int)numero;
+            division = Math.Abs(division);
             int modulo;
 
             if(division > 0)
@@ -175,8 +176,9 @@ namespace Entidades
         private double ValidarOperando(string strNumero)
         {
             double numero;
+            strNumero = strNumero.Replace('.', ',');
 
-            if(double.TryParse(strNumero, out numero))
+            if(double.TryParse(strNumero.ToString(), out numero))
             {
                 return numero;
             }

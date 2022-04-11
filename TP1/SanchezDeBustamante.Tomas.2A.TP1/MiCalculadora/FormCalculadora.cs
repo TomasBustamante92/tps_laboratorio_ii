@@ -100,8 +100,8 @@ namespace MiCalculadora
         /// <returns>devuelve el resultado de la ecuación</returns>
         private double Operar(string numero1, string numero2, string operador)
         {
-            Operando num1 = new Operando(numero1);
-            Operando num2 = new Operando(numero2);
+            Operando num1 = new Operando(numero1.ToString());
+            Operando num2 = new Operando(numero2.ToString());
             char charOperador;
             char.TryParse(operador, out charOperador);
             Calculadora resultado = new Calculadora();
