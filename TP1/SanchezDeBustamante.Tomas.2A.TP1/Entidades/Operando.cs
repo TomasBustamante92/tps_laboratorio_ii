@@ -30,6 +30,11 @@ namespace Entidades
             set { this.numero = ValidarOperando(value); } 
         }
 
+        /// <summary>
+        /// Convierte un numero binario ingresado por el usuario a decimal
+        /// </summary>
+        /// <param name="binario">numero binario</param>
+        /// <returns>De ser correcto devuelve el numero en decimal, caso contrario [Valor inválido]</returns>
         public string BinarioDecimal(string binario)
         {
             double resultado = 0;
@@ -55,6 +60,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Convierte un numero decimal ingresado por el usuario a binario
+        /// </summary>
+        /// <param name="numero">numero decimal</param>
+        /// <returns>De ser correcto devuelve el numero en binario, caso contrario [Valor inválido]</returns>
         public string DecimalBinario(double numero)
         {
             string valorBinario = "";
@@ -78,11 +88,21 @@ namespace Entidades
             return valorBinario;
         }
 
+        /// <summary>
+        /// Convierte un numero decimal ingresado por el usuario a binario
+        /// </summary>
+        /// <param name="numero">numero decimal en string</param>
+        /// <returns>De ser correcto devuelve el numero en binario, caso contrario [Valor inválido]</returns>
         public string DecimalBinario(string numero)
         {
             return DecimalBinario(ValidarOperando(numero));
         }
 
+        /// <summary>
+        /// Corrobora que el numero ingresado sea binario
+        /// </summary>
+        /// <param name="binario">numero binario</param>
+        /// <returns>De ser el numero binario correctamente devuelve true, caso contrario false</returns>
         private bool EsBinario(string binario)
         {
             foreach (char c in binario)
@@ -96,16 +116,34 @@ namespace Entidades
             return true;
         }
 
+        /// <summary>
+        /// Resta de 2 objetos operando
+        /// </summary>
+        /// <param name="n1">operando 1</param>
+        /// <param name="n2">operando 2</param>
+        /// <returns>devuelve la resta de los 2 objetos</returns>
         public static double operator - (Operando n1, Operando n2)
         {
             return n1.numero - n2.numero;
         }
 
+        /// <summary>
+        /// Suma de 2 objetos operando
+        /// </summary>
+        /// <param name="n1">operando 1</param>
+        /// <param name="n2">operando 2</param>
+        /// <returns>devuelve la suma de los 2 objetos</returns>
         public static double operator + (Operando n1, Operando n2)
         {
             return n1.numero + n2.numero;
         }
 
+        /// <summary>
+        /// División de 2 objetos operando
+        /// </summary>
+        /// <param name="n1">operando 1</param>
+        /// <param name="n2">operando 2</param>
+        /// <returns>devuelve la división de los 2 objetos</returns>
         public static double operator / (Operando n1, Operando n2)
         {
             if(n2.numero == 0)
@@ -118,11 +156,22 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Multiplicación de 2 objetos operando
+        /// </summary>
+        /// <param name="n1">operando 1</param>
+        /// <param name="n2">operando 2</param>
+        /// <returns>devuelve la multiplicación de los 2 objetos</returns>
         public static double operator * (Operando n1, Operando n2)
         {
             return n1.numero * n2.numero;
         }
 
+        /// <summary>
+        /// Valida que el string ingresado sea un numero
+        /// </summary>
+        /// <param name="strNumero">numero en string</param>
+        /// <returns>De poder parsearlo se lo devuelve como double, caso contrario [0]</returns>
         private double ValidarOperando(string strNumero)
         {
             double numero;

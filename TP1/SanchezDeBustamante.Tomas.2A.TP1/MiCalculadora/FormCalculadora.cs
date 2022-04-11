@@ -33,12 +33,6 @@ namespace MiCalculadora
             double numero1;
             double numero2;
 
-
-
-            // comentar todas las funciones
-            // validar que la ecuacion este bien
-            // validar todo, numeros negativos, etc
-
             if (double.TryParse(this.txtNumero1.Text, out numero1) == false)
             {
                 MessageBox.Show("Numero 1 incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -85,6 +79,9 @@ namespace MiCalculadora
             this.lblResultado.Text = resultado.BinarioDecimal(this.lblResultado.Text);
         }
 
+        /// <summary>
+        /// Limpia el cache de la aplicación
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Text = "";
@@ -94,6 +91,13 @@ namespace MiCalculadora
             this.lstOperaciones.Items.Clear();
         }
 
+        /// <summary>
+        /// Realiza la operación matematica con los numeros y el operador ingresado por el usuario
+        /// </summary>
+        /// <param name="numero1">primer numero de la ecuación</param>
+        /// <param name="numero2">segundo numero de la ecuación</param>
+        /// <param name="operador">operador de la ecuación</param>
+        /// <returns>devuelve el resultado de la ecuación</returns>
         private double Operar(string numero1, string numero2, string operador)
         {
             Operando num1 = new Operando(numero1);
