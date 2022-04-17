@@ -32,6 +32,8 @@ namespace MiCalculadora
         {
             double numero1;
             double numero2;
+            this.txtNumero1.Text = this.txtNumero1.Text.Replace('.', ',');
+            this.txtNumero2.Text = this.txtNumero2.Text.Replace('.', ',');
 
             if (double.TryParse(this.txtNumero1.Text, out numero1) == false)
             {
@@ -88,7 +90,6 @@ namespace MiCalculadora
             this.txtNumero2.Text = "";
             this.cmbOperador.Text = "";
             this.lblResultado.Text = "";
-            this.lstOperaciones.Items.Clear();
         }
 
         /// <summary>
@@ -98,7 +99,7 @@ namespace MiCalculadora
         /// <param name="numero2">segundo numero de la ecuación</param>
         /// <param name="operador">operador de la ecuación</param>
         /// <returns>devuelve el resultado de la ecuación</returns>
-        private double Operar(string numero1, string numero2, string operador)
+        private static double Operar(string numero1, string numero2, string operador)
         {
             Operando num1 = new Operando(numero1.ToString());
             Operando num2 = new Operando(numero2.ToString());

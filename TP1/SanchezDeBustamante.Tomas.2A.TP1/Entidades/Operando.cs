@@ -81,6 +81,10 @@ namespace Entidades
                     valorBinario = modulo.ToString() + valorBinario;
                 } while (division > 0);
             }
+            else if(division == 0)
+            {
+                return "0";
+            }
             else
             {
                 valorBinario = "Valor inválido";
@@ -96,7 +100,15 @@ namespace Entidades
         /// <returns>De ser correcto devuelve el numero en binario, caso contrario [Valor inválido]</returns>
         public string DecimalBinario(string numero)
         {
-            return DecimalBinario(ValidarOperando(numero));
+            if(numero != "" && numero != "Valor inválido")
+            {
+                Numero = numero;
+                return DecimalBinario(this.numero);
+            }
+            else
+            {
+                return "Valor inválido";
+            }
         }
 
         /// <summary>
@@ -106,15 +118,22 @@ namespace Entidades
         /// <returns>De ser el numero binario correctamente devuelve true, caso contrario false</returns>
         private bool EsBinario(string binario)
         {
-            foreach (char c in binario)
+            if(binario != "")
             {
-                if(c != '0' && c != '1')
+                foreach (char c in binario)
                 {
-                    return false;
+                    if(c != '0' && c != '1')
+                    {
+                        return false;
+                    }
                 }
-            }
 
-            return true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -176,7 +195,7 @@ namespace Entidades
         private double ValidarOperando(string strNumero)
         {
             double numero;
-            strNumero = strNumero.Replace('.', ',');
+            //strNumero = strNumero.Replace('.', ',');
 
             if(double.TryParse(strNumero.ToString(), out numero))
             {
