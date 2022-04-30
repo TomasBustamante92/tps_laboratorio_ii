@@ -17,3 +17,9 @@ E:\Workspace\C#\tps_laboratorio_ii\TP2\TP-02\Entidades\obj\Debug\Entidades.dll
 E:\Workspace\C#\tps_laboratorio_ii\TP2\TP-02\Entidades\obj\Debug\Entidades.pdb
 E:\Workspace\C#\tps_laboratorio_ii\TP2\TP-02\Entidades\bin\Debug\Entidades.dll
 E:\Workspace\C#\tps_laboratorio_ii\TP2\TP-02\Entidades\bin\Debug\Entidades.pdb
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\bin\Debug\Entidades.dll
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\bin\Debug\Entidades.pdb
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\obj\Debug\Entidades.csproj.AssemblyReference.cache
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\obj\Debug\Entidades.dll
+E:\Workspace\C#\tps_laboratorio_ii\TP2\Entidades\obj\Debug\Entidades.pdb

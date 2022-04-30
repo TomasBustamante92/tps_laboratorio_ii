@@ -13,6 +13,7 @@ namespace Entidades
         public enum ETipo { CuatroPuertas, CincoPuertas }
         ETipo tipo;
 
+
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
             : base(chasis, marca, color)
         {
@@ -33,18 +34,21 @@ namespace Entidades
         /// <summary>
         /// Sedan son 'Mediano'
         /// </summary>
-        public override ETamanio Tamanio
+        protected override ETamanio Tamanio
         {
             get { return ETamanio.Mediano; }
         }
 
+        /// <summary>
+        /// Devuelve los atributos del objeto Sedan
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("SEDAN");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine("");
             sb.AppendLine($"TAMAÑO : {this.Tamanio}");
             sb.AppendLine("TIPO : " + this.tipo);
             sb.AppendLine("");

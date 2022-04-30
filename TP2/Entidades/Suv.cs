@@ -16,18 +16,21 @@ namespace Entidades
         /// <summary>
         /// SUV son 'Grande'
         /// </summary>
-        public override ETamanio Tamanio
+        protected override ETamanio Tamanio
         {
             get { return ETamanio.Grande; }
         }
 
+        /// <summary>
+        /// Devuelve los atributos del objeto Suv
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("SUV");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine("");
             sb.AppendLine($"TAMAÑO : {this.Tamanio}");
             sb.AppendLine("");
             sb.AppendLine("---------------------");
