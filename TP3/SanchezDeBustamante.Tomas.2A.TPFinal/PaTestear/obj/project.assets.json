@@ -1,0 +1,90 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Entidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Entidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entidades.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Entidades/1.0.0": {
+      "type": "project",
+      "path": "../Entidades/Entidades.csproj",
+      "msbuildProject": "../Entidades/Entidades.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Entidades >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Tomas\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\Workspace\\C#\\tps_laboratorio_ii\\TP3\\SanchezDeBustamante.Tomas.2A.TPFinal\\PaTestear\\PaTestear.csproj",
+      "projectName": "PaTestear",
+      "projectPath": "E:\\Workspace\\C#\\tps_laboratorio_ii\\TP3\\SanchezDeBustamante.Tomas.2A.TPFinal\\PaTestear\\PaTestear.csproj",
+      "packagesPath": "C:\\Users\\Tomas\\.nuget\\packages\\",
+      "outputPath": "E:\\Workspace\\C#\\tps_laboratorio_ii\\TP3\\SanchezDeBustamante.Tomas.2A.TPFinal\\PaTestear\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "E:\\Workspace\\C#\\tps_laboratorio_ii\\TP3\\SanchezDeBustamante.Tomas.2A.TPFinal\\Entidades\\Entidades.csproj": {
+              "projectPath": "E:\\Workspace\\C#\\tps_laboratorio_ii\\TP3\\SanchezDeBustamante.Tomas.2A.TPFinal\\Entidades\\Entidades.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

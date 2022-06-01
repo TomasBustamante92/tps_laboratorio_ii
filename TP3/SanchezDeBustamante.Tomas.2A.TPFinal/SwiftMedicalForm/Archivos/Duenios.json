@@ -1,0 +1,124 @@
+[
+  {
+    "ID": 0,
+    "Nombre": "a",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "ID": 1,
+    "Nombre": "asa",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "ID": 2,
+    "Nombre": "elTres",
+    "Telefono": 4,
+    "Direccion": "as",
+    "IdAnimales": null
+  },
+  {
+    "ID": 3,
+    "Nombre": "ElCuatro",
+    "Telefono": 4,
+    "Direccion": "sa",
+    "IdAnimales": null
+  },
+  {
+    "ID": 4,
+    "Nombre": "5",
+    "Telefono": 5,
+    "Direccion": "sa",
+    "IdAnimales": null
+  },
+  {
+    "ID": 5,
+    "Nombre": "reee",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": [
+      8
+    ]
+  },
+  {
+    "ID": 6,
+    "Nombre": "a",
+    "Telefono": 121,
+    "Direccion": "ds",
+    "IdAnimales": null
+  },
+  {
+    "ID": 7,
+    "Nombre": "ad",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": null
+  },
+  {
+    "ID": 8,
+    "Nombre": "a",
+    "Telefono": 22,
+    "Direccion": "a",
+    "IdAnimales": null
+  },
+  {
+    "ID": 9,
+    "Nombre": "a333",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": null
+  },
+  {
+    "ID": 10,
+    "Nombre": "a22222",
+    "Telefono": 2,
+    "Direccion": "2",
+    "IdAnimales": null
+  },
+  {
+    "ID": 11,
+    "Nombre": "dada",
+    "Telefono": 2,
+    "Direccion": "2",
+    "IdAnimales": null
+  },
+  {
+    "ID": 12,
+    "Nombre": "Abuelo",
+    "Telefono": 4,
+    "Direccion": "4",
+    "IdAnimales": null
+  },
+  {
+    "ID": 13,
+    "Nombre": "sa",
+    "Telefono": 2,
+    "Direccion": "a",
+    "IdAnimales": null
+  },
+  {
+    "ID": 14,
+    "Nombre": "popeye",
+    "Telefono": 2,
+    "Direccion": "2",
+    "IdAnimales": [
+      7
+    ]
+  }
+]
