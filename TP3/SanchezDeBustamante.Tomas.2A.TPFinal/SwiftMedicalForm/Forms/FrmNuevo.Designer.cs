@@ -87,7 +87,7 @@ namespace SwiftMedicalForm
             this.lblConfirmar.Name = "lblConfirmar";
             this.lblConfirmar.Size = new System.Drawing.Size(151, 44);
             this.lblConfirmar.TabIndex = 6;
-            this.lblConfirmar.Text = "Confirmar";
+            this.lblConfirmar.Text = "Agregar";
             this.lblConfirmar.UseVisualStyleBackColor = true;
             this.lblConfirmar.Click += new System.EventHandler(this.lblConfirmar_Click);
             // 

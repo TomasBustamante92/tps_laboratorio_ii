@@ -33,9 +33,11 @@ namespace SwiftMedicalForm
             this.lblCargarDuenio = new System.Windows.Forms.Label();
             this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.btnAtras = new System.Windows.Forms.Button();
-            this.lblConfirmar = new System.Windows.Forms.Button();
+            this.lblCargar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblBuscar = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbListaDuenios
@@ -77,16 +79,16 @@ namespace SwiftMedicalForm
             this.btnAtras.UseVisualStyleBackColor = true;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
-            // lblConfirmar
+            // lblCargar
             // 
-            this.lblConfirmar.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblConfirmar.Location = new System.Drawing.Point(338, 464);
-            this.lblConfirmar.Name = "lblConfirmar";
-            this.lblConfirmar.Size = new System.Drawing.Size(151, 44);
-            this.lblConfirmar.TabIndex = 10;
-            this.lblConfirmar.Text = "Confirmar";
-            this.lblConfirmar.UseVisualStyleBackColor = true;
-            this.lblConfirmar.Click += new System.EventHandler(this.lblConfirmar_Click);
+            this.lblCargar.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCargar.Location = new System.Drawing.Point(330, 464);
+            this.lblCargar.Name = "lblCargar";
+            this.lblCargar.Size = new System.Drawing.Size(151, 44);
+            this.lblCargar.TabIndex = 10;
+            this.lblCargar.Text = "Cargar";
+            this.lblCargar.UseVisualStyleBackColor = true;
+            this.lblCargar.Click += new System.EventHandler(this.lblConfirmar_Click);
             // 
             // btnSalir
             // 
@@ -109,15 +111,39 @@ namespace SwiftMedicalForm
             this.lblBuscar.TabIndex = 3;
             this.lblBuscar.Text = "Buscar:";
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBorrar.Location = new System.Drawing.Point(12, 464);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(81, 28);
+            this.btnBorrar.TabIndex = 46;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModificar.Location = new System.Drawing.Point(99, 464);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(81, 28);
+            this.btnModificar.TabIndex = 47;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
             // FrmCargarDuenio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(825, 593);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.lblConfirmar);
+            this.Controls.Add(this.lblCargar);
             this.Controls.Add(this.txtBuscarNombre);
             this.Controls.Add(this.lblBuscar);
             this.Controls.Add(this.lblCargarDuenio);
@@ -138,8 +164,10 @@ namespace SwiftMedicalForm
         private System.Windows.Forms.Label lblCargarDuenio;
         private System.Windows.Forms.TextBox txtBuscarNombre;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.Button lblConfirmar;
+        private System.Windows.Forms.Button lblCargar;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lblBuscar;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

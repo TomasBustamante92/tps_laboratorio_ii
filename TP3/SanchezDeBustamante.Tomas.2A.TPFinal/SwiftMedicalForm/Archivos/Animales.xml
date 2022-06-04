@@ -3,57 +3,97 @@
   <Animal>
     <ID>1</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>re</Nombre>
+    <Nombre>sa</Nombre>
     <Edad>2</Edad>
     <Raza>2</Raza>
+    <Historial>Fecha: 1/6/2022 
+
+re
+
+------------------------------------ 
+
+</Historial>
   </Animal>
   <Animal>
     <ID>2</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>Sanchito</Nombre>
-    <Edad>7</Edad>
-    <Raza>gato</Raza>
+    <Nombre>segundo</Nombre>
+    <Edad>2</Edad>
+    <Raza>2</Raza>
+    <Historial>Fecha: 1/6/2022 
+
+el segundo va bien
+
+------------------------------------ 
+
+</Historial>
   </Animal>
   <Animal>
     <ID>3</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>reeeesa</Nombre>
+    <Nombre>a</Nombre>
     <Edad>2</Edad>
     <Raza>2</Raza>
+    <Historial>Fecha: 3/6/2022 
+
+sigue vivo por suerte
+
+------------------------------------ 
+
+</Historial>
   </Animal>
   <Animal>
     <ID>4</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>ds</Nombre>
-    <Edad>2</Edad>
+    <Nombre>berto</Nombre>
+    <Edad>12</Edad>
     <Raza>2</Raza>
+    <Historial />
   </Animal>
   <Animal>
     <ID>5</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>a</Nombre>
+    <Nombre>mini koko</Nombre>
     <Edad>2</Edad>
     <Raza>2</Raza>
+    <Historial>Fecha: 3/6/2022 
+
+se
+
+------------------------------------ 
+
+</Historial>
   </Animal>
   <Animal>
     <ID>6</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>nestor</Nombre>
+    <Nombre>fredo</Nombre>
     <Edad>2</Edad>
     <Raza>2</Raza>
+    <Historial />
   </Animal>
   <Animal>
     <ID>7</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>ds</Nombre>
+    <Nombre>el nuevito</Nombre>
     <Edad>2</Edad>
     <Raza>2</Raza>
+    <Historial />
   </Animal>
   <Animal>
     <ID>8</ID>
     <Tipo>Gato</Tipo>
-    <Nombre>abuelo</Nombre>
+    <Nombre>El primogenito</Nombre>
+    <Edad>0</Edad>
+    <Raza>0</Raza>
+    <Historial />
+  </Animal>
+  <Animal>
+    <ID>9</ID>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>el rarito</Nombre>
     <Edad>2</Edad>
-    <Raza>3</Raza>
+    <Raza>2</Raza>
+    <Historial />
   </Animal>
 </ArrayOfAnimal>

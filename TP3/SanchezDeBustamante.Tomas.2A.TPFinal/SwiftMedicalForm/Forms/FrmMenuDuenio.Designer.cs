@@ -187,7 +187,6 @@ namespace SwiftMedicalForm
             this.rtbHistorial.Size = new System.Drawing.Size(603, 114);
             this.rtbHistorial.TabIndex = 32;
             this.rtbHistorial.Text = "";
-            this.rtbHistorial.TextChanged += new System.EventHandler(this.rtbHistorial_TextChanged);
             // 
             // lblDatoTipo
             // 

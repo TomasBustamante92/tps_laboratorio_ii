@@ -14,8 +14,10 @@ namespace SwiftMedicalForm
     public partial class FrmNuevo : Form
     {
         Serializador<Duenio> duenios = null;
+        Duenio duenioAux = null;
         Duenio duenio = null;
-        int ultimoId;
+        bool duenioModificado;
+        int id;
 
         public FrmNuevo()
         {
@@ -25,7 +27,18 @@ namespace SwiftMedicalForm
         public FrmNuevo(Serializador<Duenio> duenios, int ultimoId) : this()
         {
             this.duenios = duenios;
-            this.ultimoId = ultimoId; 
+            this.id = ultimoId + 1;
+            this.duenioModificado = false;
+        }
+
+        public FrmNuevo(Serializador<Duenio> duenios, Duenio d) : this()
+        {
+            this.duenioAux = new Duenio(d.ID, d.Nombre, d.Telefono, d.Direccion, d.IdAnimales);
+            this.duenio = d;
+            this.id = duenio.ID;
+            this.duenioModificado = true;
+            this.duenios = duenios;
+            CargarDuenio();
         }
 
         public Duenio GetDuenio
@@ -48,43 +61,88 @@ namespace SwiftMedicalForm
                 !string.IsNullOrWhiteSpace(this.txtTelefono.Text) &&
                 numeroParseable && !string.IsNullOrWhiteSpace(this.txtDireccion.Text))
             {
-                this.ultimoId += 1;
-                this.duenio = new Duenio(this.ultimoId, this.txtNombre.Text, telefono, this.txtDireccion.Text);
-                if(this.duenios.Agregar(duenio))
+                if(duenioModificado)
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    ModificarDuenio(this.duenioAux, telefono);
+
+                    DialogResult result = MessageBox.Show(this.duenioAux.ToString(), "¿Está seguro de realizar estos cambios?",
+                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        ModificarDuenio(this.duenio, telefono);
+                        Close();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        Close();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Dueño ya está en la base de datos!");
+                    AgregarDuenioBaseDeDatos(telefono);
                 }
             }
             else
             {
-                StringBuilder sb = new StringBuilder();
-
-                if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
-                {
-                    sb.AppendLine("El campo de Nombre esta vacio");
-                }
-
-                if (string.IsNullOrWhiteSpace(this.txtTelefono.Text))
-                {
-                    sb.AppendLine("El campo de Telefono esta vacio");
-                }
-                else if (!numeroParseable)
-                {
-                    sb.AppendLine("El campo de Telefono esta incorrecto");
-                }
-
-                if (string.IsNullOrWhiteSpace(this.txtDireccion.Text))
-                {
-                    sb.AppendLine("El campo de Dirección esta vacio");
-                }
-
-                MessageBox.Show(sb.ToString());
+                MessageBox.Show(MensajeCampoVacio(numeroParseable));
             }
+        }
+
+        void AgregarDuenioBaseDeDatos(int telefono)
+        {
+            this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text);
+            if (this.duenios.Agregar(duenio))
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Dueño ya está en la base de datos!");
+            }
+        }
+
+        void ModificarDuenio(Duenio d, int telefono)
+        {
+            d.Nombre = this.txtNombre.Text;
+            d.Telefono = telefono;
+            d.Direccion = this.txtDireccion.Text;
+        }
+
+        string MensajeCampoVacio(bool numeroParseable)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
+            {
+                sb.AppendLine("El campo de Nombre esta vacio");
+            }
+
+            if (string.IsNullOrWhiteSpace(this.txtTelefono.Text))
+            {
+                sb.AppendLine("El campo de Telefono esta vacio");
+            }
+            else if (!numeroParseable)
+            {
+                sb.AppendLine("El campo de Telefono esta incorrecto");
+            }
+
+            if (string.IsNullOrWhiteSpace(this.txtDireccion.Text))
+            {
+                sb.AppendLine("El campo de Dirección esta vacio");
+            }
+
+            return sb.ToString();
+        }
+
+        void CargarDuenio()
+        {
+            this.lblNuevoDuenio.Text = "Modificar Dueño";
+            this.lblConfirmar.Text = "Modificar";
+            this.txtNombre.Text = duenio.Nombre;
+            this.txtTelefono.Text = duenio.Telefono.ToString();
+            this.txtDireccion.Text = duenio.Direccion;
         }
     }
 }

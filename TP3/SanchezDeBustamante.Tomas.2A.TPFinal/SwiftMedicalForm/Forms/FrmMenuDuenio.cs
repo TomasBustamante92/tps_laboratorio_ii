@@ -15,6 +15,7 @@ namespace SwiftMedicalForm
     {
         const string PATH = "..\\..\\..\\Archivos";
         Serializador<Animal> animalesXml = null;
+        Serializador<Duenio> dueniosJson = null;
         Duenio duenio = null;
         List<Animal> animales;
         StringBuilder historial;
@@ -24,12 +25,14 @@ namespace SwiftMedicalForm
         {
             InitializeComponent();
             animalesXml = new Serializador<Animal>();
+            dueniosJson = new Serializador<Duenio>();
             animales = new List<Animal>();
             historial = new StringBuilder();
         }
 
-        public FrmMenuDuenio(Duenio d, int ultimoIdAnimal) : this()
+        public FrmMenuDuenio(Serializador<Duenio> dueniosJson, Duenio d, int ultimoIdAnimal) : this()
         {
+            this.dueniosJson = dueniosJson;
             this.duenio = d;
             this.ultimoIdAnimal = ultimoIdAnimal;
         }
@@ -42,24 +45,31 @@ namespace SwiftMedicalForm
         private void btnAtras_Click(object sender, EventArgs e)
         {
             GuardarArchivoXml();
+
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void btnNuevaMascota_Click(object sender, EventArgs e)
         {
+            // Se crea nuevo animal
             FrmAnimal animal = new FrmAnimal(this.animalesXml, this.ultimoIdAnimal);
 
             if(animal.ShowDialog() == DialogResult.OK)
             {
-                //this.animales.Add(animal.Mascota);
+                // Lo agregamos a la lista XML
+
                 this.animalesXml.Agregar(animal.Mascota);
 
-                this.duenio.IdAnimales = ConvertirListaAArray(this.duenio.IdAnimales, animal.Mascota.ID); // AGREGAR IDS ANIMALES REVISAAAAR
+                // AGREGAR IDS ANIMALES REVISAAAAR
+                this.duenio.IdAnimales = AgregarId(this.duenio.IdAnimales, animal.Mascota.ID); 
                 // actualizar id
                 this.ultimoIdAnimal = animal.UltimoId;
+
+                // Carga a lista local
                 CargarListaAnimales();
                 CargarForm();
+                SeleccionarAnimalRecienCreado();
             }
             else
             {
@@ -78,38 +88,31 @@ namespace SwiftMedicalForm
         {
             FrmHistorial historial = new FrmHistorial();
 
-            try
+            if(this.cmbMascota.SelectedItem is not null)
             {
-                if(this.cmbMascota.SelectedItem is not null)
-                {
-                    int indice = this.IndiceAnimal(this.cmbMascota.SelectedItem.ToString());
+                int indice = this.IndiceAnimal(this.cmbMascota.SelectedItem.ToString());
 
-                    if (indice != -1)
-                    {
-                        if (historial.ShowDialog() == DialogResult.OK)
-                        {
-                            //CargarHistorial(historial.Historial, animales[indice]);
-                            CargarHistorial(historial.Historial, animalesXml.Lista[indice]);
-                        }
-                        else
-                        {
-                            MessageBox.Show("No Pasaron cosas");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Da -1 carnal");
-                    }
-                }
-                else
+                try
                 {
-                    MessageBox.Show("Seleccione una mascota");
+                    if (historial.ShowDialog() == DialogResult.OK)
+                    {
+                        CargarHistorial(historial.Historial, animales[indice]);
+                    }
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    MessageBox.Show("Error! No se pudo encontrar a la mascota!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Seleccione una mascota");
             }
+            
         }
 
         private void FrmMenuDuenio_Load(object sender, EventArgs e)
@@ -125,28 +128,25 @@ namespace SwiftMedicalForm
             CargarArchivoXml();
             CargarListaAnimales();
             CargarForm();
+            SeleccionarPrimeraOpcionPorDefault();
         }
 
         void CargarForm()
         {
-            this.cmbMascota.Items.Clear();
-
-            foreach (Animal item in this.animales)
-            {
-                this.cmbMascota.Items.Add(item.ToString());
-            }
+            ActualizarHistorial();
+            CargarMascotasEnComboBox();
         }
 
-        int IndiceAnimal(string a)
+        int IndiceAnimal(string s)
         {
             for(int i=0; i<this.animales.Count; i++)
             {
-                if(this.animales[i].ToString() == a)
+                if(this.animales[i].ToString() == s)
                 {
                     return i;
                 }
             }
-            return -1;
+            throw new IndexOutOfRangeException();
         }
 
         void CargarHistorial(string h, Animal a)
@@ -154,35 +154,46 @@ namespace SwiftMedicalForm
             this.historial.Clear();
             this.historial.Append(a.Historial);
             this.historial.Insert(0, "------------------------------------ \n\n");
-            this.historial.Insert(0,h + "\n\n");
-            this.historial.Insert(0,$"Fecha: {DateTime.Now.ToShortDateString().ToString()} \n\n");
+            this.historial.Insert(0, h + "\n\n");
+            this.historial.Insert(0, $"Fecha: {DateTime.Now.ToShortDateString().ToString()} \n\n");
             a.Historial = historial.ToString();
-
             this.rtbHistorial.Text = a.Historial;
         }
 
-        private void rtbHistorial_TextChanged(object sender, EventArgs e)
+        bool ActualizarHistorial()
         {
+            if (this.cmbMascota.SelectedItem is not null)
+            {
+                int indice = IndiceAnimal(this.cmbMascota.SelectedItem.ToString());
 
+                try
+                {
+                    this.rtbHistorial.Text = this.animales[indice].Historial;
+                    return true;
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    MessageBox.Show("Error! No se pudo encontrar a la mascota!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            return false;
         }
 
         private void cmbMascota_SelectedIndexChanged(object sender, EventArgs e)
         {
             int indice = this.IndiceAnimal(this.cmbMascota.SelectedItem.ToString());
-            CargarListaAnimales();
             this.rtbHistorial.Text = animales[indice].Historial;
             this.lblDatoNombre.Text = animales[indice].Nombre;
             this.lblDatoEdad.Text = animales[indice].Edad.ToString();
             this.lblDatoRaza.Text = animales[indice].Raza;
             this.lblDatoTipo.Text = animales[indice].Tipo.ToString();
-            //this.rtbHistorial.Text = animalesXml.Lista[indice].Historial;
-            //this.lblDatoNombre.Text = animalesXml.Lista[indice].Nombre;
-            //this.lblDatoEdad.Text = animalesXml.Lista[indice].Edad.ToString();
-            //this.lblDatoRaza.Text = animalesXml.Lista[indice].Raza;
-            //this.lblDatoTipo.Text = animalesXml.Lista[indice].Tipo.ToString();
         }
 
-        int[] ConvertirListaAArray(int[] listaAAgregar, int id)
+        int[] AgregarId(int[] listaAAgregar, int id)
         {
             List<int> ids = new List<int>();
 
@@ -224,8 +235,7 @@ namespace SwiftMedicalForm
 
         void CargarListaAnimales()
         {
-            this.animales.Clear();
-
+            this.animales.Clear(); // revisar cuando se borre o modifiquen animales
             try
             {
                 foreach (Animal item in this.animalesXml.Lista)
@@ -241,12 +251,35 @@ namespace SwiftMedicalForm
             }
             catch (NullReferenceException)
             {
-                MessageBox.Show("La lista está vacia");
+                MessageBox.Show("La lista de mascotas está vacia");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        void CargarMascotasEnComboBox()
+        {
+            this.cmbMascota.Items.Clear();
+
+            foreach (Animal item in this.animales)
+            {
+                this.cmbMascota.Items.Add(item.ToString());
+            }
+        }
+
+        void SeleccionarPrimeraOpcionPorDefault()
+        {
+            if (this.animales.Count != 0)
+            {
+                this.cmbMascota.SelectedItem = this.cmbMascota.Items[0];
+            }
+        }
+
+        void SeleccionarAnimalRecienCreado()
+        {
+            this.cmbMascota.SelectedItem = this.cmbMascota.Items[this.animales.Count - 1];
         }
     }
 }

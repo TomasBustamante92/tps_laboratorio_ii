@@ -24,9 +24,23 @@ namespace SwiftMedicalForm
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.rtbHistorial.Text = string.Empty;
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            if(!string.IsNullOrWhiteSpace(this.rtbHistorial.Text))
+            {
+                DialogResult resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.OK)
+                {
+                    this.rtbHistorial.Text = string.Empty;
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.rtbHistorial.Text = string.Empty;
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e)
@@ -37,7 +51,7 @@ namespace SwiftMedicalForm
 
         private void FrmHistorial_Load(object sender, EventArgs e)
         {
-
+            this.rtbHistorial.Text = string.Empty;
         }
     }
 }

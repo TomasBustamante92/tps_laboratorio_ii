@@ -19,5 +19,8 @@
     <Compile Update="Forms\FrmCargarDuenio.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\frmModificarOpciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

@@ -40,8 +40,24 @@ namespace SwiftMedicalForm
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            if (!string.IsNullOrWhiteSpace(this.txtEdad.Text) ||
+                 !string.IsNullOrWhiteSpace(this.txtNombre.Text) ||
+                 !string.IsNullOrWhiteSpace(this.txtRaza.Text))
+            {
+                DialogResult resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
 
         private void lblConfirmar_Click(object sender, EventArgs e)
@@ -49,49 +65,59 @@ namespace SwiftMedicalForm
             int edad;
             bool numeroParseable = int.TryParse(txtEdad.Text, out edad);
 
-            if(!string.IsNullOrWhiteSpace(this.txtEdad.Text) &&
+            if (!string.IsNullOrWhiteSpace(this.txtEdad.Text) &&
                 !string.IsNullOrWhiteSpace(this.txtNombre.Text) &&
                 !string.IsNullOrWhiteSpace(this.txtRaza.Text) && numeroParseable)
             {
-                Animal.TipoAnimal tipoAux = (Animal.TipoAnimal)this.cmbTipoAnimal.SelectedItem;
-
-                this.ultimoId += 1;
-                this.animal = new Animal(this.ultimoId, tipoAux, txtNombre.Text, edad, txtRaza.Text);
-
-                if (this.animalXml.Agregar(this.animal))
-                {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo agregar al animal");
-                }
+                AgregarAnimalABaseDeDator(edad);
             }
             else
             {
-                StringBuilder sb = new StringBuilder();
+                MessageBox.Show(MensajeCampoVacio(numeroParseable));
+            }
+        }
 
-                if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
-                {
-                    sb.AppendLine("El campo de Nombre esta vacio");
-                }
+        string MensajeCampoVacio(bool numeroParseable)
+        {
+            StringBuilder sb = new StringBuilder();
 
-                if (string.IsNullOrWhiteSpace(this.txtEdad.Text))
-                {
-                    sb.AppendLine("El campo de Edad esta vacio");
-                }
-                else if(!numeroParseable)
-                {
-                    sb.AppendLine("El campo de Edad esta incorrecto");
-                }
+            if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
+            {
+                sb.AppendLine("El campo de Nombre esta vacio");
+            }
 
-                if (string.IsNullOrWhiteSpace(this.txtRaza.Text))
-                {
-                    sb.AppendLine("El campo de Raza esta vacio");
-                }
+            if (string.IsNullOrWhiteSpace(this.txtEdad.Text))
+            {
+                sb.AppendLine("El campo de Edad esta vacio");
+            }
+            else if (!numeroParseable)
+            {
+                sb.AppendLine("El campo de Edad esta incorrecto");
+            }
 
-                MessageBox.Show(sb.ToString());
+            if (string.IsNullOrWhiteSpace(this.txtRaza.Text))
+            {
+                sb.AppendLine("El campo de Raza esta vacio");
+            }
+
+            return sb.ToString();
+        }
+
+        void AgregarAnimalABaseDeDator(int edad)
+        {
+            Animal.TipoAnimal tipoAux = (Animal.TipoAnimal)this.cmbTipoAnimal.SelectedItem;
+
+            this.ultimoId += 1;
+            this.animal = new Animal(this.ultimoId, tipoAux, txtNombre.Text, edad, txtRaza.Text);
+
+            if (this.animalXml.Agregar(this.animal))
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se pudo agregar a la base de datos");
             }
         }
 

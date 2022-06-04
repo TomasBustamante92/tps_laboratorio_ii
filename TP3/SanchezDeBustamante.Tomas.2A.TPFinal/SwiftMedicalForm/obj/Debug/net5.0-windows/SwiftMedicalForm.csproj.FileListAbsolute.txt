@@ -45,3 +45,4 @@ E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\Swif
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\bin\Debug\net5.0-windows\Entidades.pdb
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.csproj.CopyComplete
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmCargarDuenio.resources
+E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.frmModificarOpciones.resources

@@ -24,6 +24,7 @@ namespace Entidades
             this.nombre = nombre;
             this.edad = edad;
             this.raza = raza;
+            this.historial = string.Empty;
         }
 
         public int ID
@@ -62,18 +63,17 @@ namespace Entidades
             set { this.historial = value; }
         }
 
-        public static int BuscarAnimalIdPorNombre(List<Animal> animales, string nombre)
-        {
-            for (int i = 0; i < animales.Count; i++)
-            {
-                if (animales[i].nombre == nombre)
-                {
-                    return i;
-                }
-            }
-
-            throw new NombreNoExisteEnLista();
-        }
+        //public static int BuscarAnimalIdPorNombre(List<Animal> animales, string nombre)
+        //{
+        //    for (int i = 0; i < animales.Count; i++)
+        //    {
+        //        if (animales[i].nombre == nombre)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    throw new NombreNoExisteEnLista();
+        //}
 
         public string Mostrar()
         {

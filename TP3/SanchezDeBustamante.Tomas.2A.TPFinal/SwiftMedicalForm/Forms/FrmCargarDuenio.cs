@@ -32,7 +32,7 @@ namespace SwiftMedicalForm
 
         private void FrmCargarDuenio_Load(object sender, EventArgs e)
         {
-            this.lbListaDuenios.DataSource = this.duenios.Lista;
+            CargarListbox();
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
@@ -73,6 +73,35 @@ namespace SwiftMedicalForm
                     }
                 }
             }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            Duenio aux = (Duenio)this.lbListaDuenios.SelectedItem;
+            DialogResult resultado = MessageBox.Show($"¿Esta seguro que desea eliminar a {aux.Nombre}?", "Alerta!",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.OK)
+            {
+                this.duenios.Eliminar(aux);
+                CargarListbox();
+            }
+        }
+
+        void CargarListbox()
+        {
+            this.lbListaDuenios.DataSource = null;
+            this.lbListaDuenios.Items.Clear();
+            this.lbListaDuenios.DataSource = this.duenios.Lista;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Duenio aux = (Duenio)this.lbListaDuenios.SelectedItem;
+
+            FrmNuevo modificarDuenio = new FrmNuevo(this.duenios, aux);
+            modificarDuenio.ShowDialog();
+            CargarListbox();
         }
     }
 }

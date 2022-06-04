@@ -45,14 +45,13 @@ namespace SwiftMedicalForm
 
                 if(nuevoDuenio is not null)
                 {
-                    duenioFrm = new FrmMenuDuenio(nuevoDuenio, ultimoIds.Lista[1]); 
+                    duenioFrm = new FrmMenuDuenio(duenios, nuevoDuenio, ultimoIds.Lista[1]); 
 
                     this.ultimoIds.Lista[0] = nuevoDuenio.ID;
                     resultadoDuenio = duenioFrm.ShowDialog();
                     this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
 
-
-                    if (resultadoDuenio != DialogResult.Abort) // SE REPITEE
+                    if (resultadoDuenio != DialogResult.Abort) 
                     {
 
                     }
@@ -77,12 +76,11 @@ namespace SwiftMedicalForm
 
             if (resultado == DialogResult.OK)
             {
-                duenioFrm = new FrmMenuDuenio(cargar.GetDuenioElegido(), ultimoIds.Lista[1]);  
+                duenioFrm = new FrmMenuDuenio(duenios, cargar.GetDuenioElegido(), ultimoIds.Lista[1]);
                 resultadoDuenio = duenioFrm.ShowDialog();
                 this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
 
-
-                if (resultadoDuenio == DialogResult.OK) // SE REPITEE
+                if (resultadoDuenio == DialogResult.OK) 
                 {
 
                 }
@@ -95,15 +93,8 @@ namespace SwiftMedicalForm
 
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // CAMBIAR
-            //MessageBox.Show(Environment.CurrentDirectory);
-            //string path = ".";
-
-            //string path = AppDomain.CurrentDomain.BaseDirectory;
-
             try
             {
-                //this.duenios.CargarListaXml(path, "Duenios");
                 this.duenios.CargarListaJson(PATH, "Duenios");
                 this.ultimoIds.CargarListaJson(PATH, "UltimoId");
             }
@@ -111,15 +102,6 @@ namespace SwiftMedicalForm
             {
                 MessageBox.Show("No se encontró la base de datos");
             }
-        }
-
-        private void FrmIngreso_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); // CAMBIAR
-            //string path = AppDomain.CurrentDomain.BaseDirectory;
-            //string path = "..\\..\\..\\Archivos";
-
-
         }
 
         private void FrmIngreso_FormClosing(object sender, FormClosingEventArgs e)
@@ -131,11 +113,8 @@ namespace SwiftMedicalForm
 
                 if(resultado == DialogResult.Yes)
                 {
-                    MessageBox.Show(this.ultimoIds.Lista[1].ToString());
-
                     try
                     {
-                        //this.duenios.GuardarListaXml(path,"Duenios");
                         this.duenios.GuardarListaJson(PATH, "Duenios");
                         this.ultimoIds.GuardarListaJson(PATH, "UltimoId");
                     }

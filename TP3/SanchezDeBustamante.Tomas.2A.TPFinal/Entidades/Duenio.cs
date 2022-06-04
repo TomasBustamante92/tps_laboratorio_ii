@@ -26,6 +26,12 @@ namespace Entidades
             this.direccion = direccion;
         }
 
+        public Duenio(int id, string nombre, int telefono, string direccion, int[] idAnimales) : 
+            this(id, nombre,telefono, direccion)
+        {
+            this.idAnimales = idAnimales;
+        }
+
         public int ID
         {
             get { return this.id; }
@@ -56,22 +62,33 @@ namespace Entidades
             set { this.idAnimales = value; }
         }
 
-        public static int BuscarDuenioIdPorNombre(List<Duenio> duenios, string nombre)
-        {
-            for (int i = 0; i < duenios.Count; i++)
-            {
-                if (duenios[i].nombre == nombre)
-                {
-                    return i;
-                }
-            }
-
-            throw new NombreNoExisteEnLista();
-        }
+        //public static int BuscarDuenioIdPorNombre(List<Duenio> duenios, string nombre)
+        //{
+        //    for (int i = 0; i < duenios.Count; i++)
+        //    {
+        //        if (duenios[i].nombre == nombre)
+        //        {
+        //            return i;
+        //        }
+        //    }
+        //    throw new NombreNoExisteEnLista();
+        //}
 
         public string Mostrar()
         {
-            return $"Nombre: {this.nombre} - Telefono: {this.telefono} - Dirección: {this.direccion}";
+            int cantidadMascotas;
+
+            if (this.idAnimales is not null)
+            {
+                cantidadMascotas = this.idAnimales.Length;
+            }
+            else
+            {
+                cantidadMascotas = 0;
+            }
+
+            return $"Nombre: {this.nombre} - Telefono: {this.telefono} - Dirección: {this.direccion}" +
+                $" - Cantidad de mascotas: {cantidadMascotas}";
         }
 
         public override string ToString()
