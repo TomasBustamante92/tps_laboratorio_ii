@@ -27,7 +27,6 @@ E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\Swif
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\bin\Debug\net5.0-windows\SwiftMedicalForm.pdb
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.csproj.AssemblyReference.cache
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmIngreso.resources
-E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmNuevo.resources
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.Properties.Resources.resources
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.csproj.GenerateResource.cache
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.GeneratedMSBuildEditorConfig.editorconfig
@@ -38,11 +37,11 @@ E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\Swif
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\ref\SwiftMedicalForm.dll
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.pdb
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.genruntimeconfig.cache
-E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmAnimal.resources
-E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmMenuDuenio.resources
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmHistorial.resources
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\bin\Debug\net5.0-windows\Entidades.dll
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\bin\Debug\net5.0-windows\Entidades.pdb
 E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.csproj.CopyComplete
-E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmCargarDuenio.resources
-E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.frmModificarOpciones.resources
+E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmCargar.resources
+E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmDuenio.resources
+E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmMascota.resources
+E:\Workspace\C#\tps_laboratorio_ii\TP3\SanchezDeBustamante.Tomas.2A.TPFinal\SwiftMedicalForm\obj\Debug\net5.0-windows\SwiftMedicalForm.FrmMenuPrincipal.resources

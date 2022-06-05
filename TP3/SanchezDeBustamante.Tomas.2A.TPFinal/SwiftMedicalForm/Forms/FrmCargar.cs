@@ -11,16 +11,16 @@ using Entidades;
 
 namespace SwiftMedicalForm
 {
-    public partial class FrmCargarDuenio : Form
+    public partial class FrmCargar : Form
     {
         Serializador<Duenio> duenios = null;
 
-        public FrmCargarDuenio()
+        public FrmCargar()
         {
             InitializeComponent();
         }
 
-        public FrmCargarDuenio(Serializador<Duenio> duenios) : this()
+        public FrmCargar(Serializador<Duenio> duenios) : this()
         {
             this.duenios = duenios;
         }
@@ -38,11 +38,6 @@ namespace SwiftMedicalForm
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
 
@@ -99,7 +94,7 @@ namespace SwiftMedicalForm
         {
             Duenio aux = (Duenio)this.lbListaDuenios.SelectedItem;
 
-            FrmNuevo modificarDuenio = new FrmNuevo(this.duenios, aux);
+            FrmDuenio modificarDuenio = new FrmDuenio(this.duenios, aux);
             modificarDuenio.ShowDialog();
             CargarListbox();
         }

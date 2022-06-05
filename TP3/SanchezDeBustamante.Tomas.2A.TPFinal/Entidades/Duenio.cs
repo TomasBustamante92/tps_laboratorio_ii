@@ -12,7 +12,7 @@ namespace Entidades
         string nombre;
         int telefono;
         string direccion;
-        int[] idAnimales;
+        int[] idMascotas;
 
         public Duenio()
         {
@@ -26,13 +26,13 @@ namespace Entidades
             this.direccion = direccion;
         }
 
-        public Duenio(int id, string nombre, int telefono, string direccion, int[] idAnimales) : 
+        public Duenio(int id, string nombre, int telefono, string direccion, int[] idMascotas) : 
             this(id, nombre,telefono, direccion)
         {
-            this.idAnimales = idAnimales;
+            this.idMascotas = idMascotas;
         }
 
-        public int ID
+        public int Id
         {
             get { return this.id; }
             set { this.id = value; }
@@ -56,39 +56,27 @@ namespace Entidades
             set { this.direccion = value; }
         }
 
-        public int[] IdAnimales
+        public int[] IdMascotas
         {
-            get { return this.idAnimales; }
-            set { this.idAnimales = value; }
+            get { return this.idMascotas; }
+            set { this.idMascotas = value; }
         }
-
-        //public static int BuscarDuenioIdPorNombre(List<Duenio> duenios, string nombre)
-        //{
-        //    for (int i = 0; i < duenios.Count; i++)
-        //    {
-        //        if (duenios[i].nombre == nombre)
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    throw new NombreNoExisteEnLista();
-        //}
 
         public string Mostrar()
         {
-            int cantidadMascotas;
-
-            if (this.idAnimales is not null)
-            {
-                cantidadMascotas = this.idAnimales.Length;
-            }
-            else
-            {
-                cantidadMascotas = 0;
-            }
-
             return $"Nombre: {this.nombre} - Telefono: {this.telefono} - Dirección: {this.direccion}" +
-                $" - Cantidad de mascotas: {cantidadMascotas}";
+                $" - Cantidad de mascotas: {ContarMascotas()}";
+        }
+
+        int ContarMascotas()
+        {
+            int cantidadMascotas = 0;
+
+            if (this.idMascotas is not null)
+            {
+                cantidadMascotas = this.idMascotas.Length;
+            }
+            return cantidadMascotas;
         }
 
         public override string ToString()
@@ -102,23 +90,5 @@ namespace Entidades
             return aux is not null && this.nombre == aux.nombre &&
                 this.telefono == aux.telefono && this.direccion == aux.direccion;
         }
-
-        //public static int[] DevolverIndiceAnimales(List<Animal> animales, Duenio d)
-        //{
-        //    List<int> indices = new List<int>();
-
-        //    foreach (int id in d.idAnimales)
-        //    {
-        //        for (int i=0; i<animales.Count; i++)
-        //        {
-        //            if (animales[i].ID == id)
-        //            {
-        //                indices.Add(i);
-        //            }
-        //        }
-        //    }
-
-        //    return indices.ToArray();
-        //}
     }
 }

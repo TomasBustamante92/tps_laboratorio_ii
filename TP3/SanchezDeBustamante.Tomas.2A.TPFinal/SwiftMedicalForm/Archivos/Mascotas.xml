@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMascota xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Mascota>
+    <Id>3</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>gfsasaasfsrfsdxdfcfrdrdr</Nombre>
+    <Edad>4554635</Edad>
+    <Raza>4hgfhfhgfhgfhgfhfghfghfghfghfgh</Raza>
+    <Historial>Fecha: 4/6/2022 
+
+Dia 500 ... creo que empieza a notar mi presencia
+
+------------------------------------ 
+
+Fecha: 4/6/2022 
+
+Dia 250... aun respira
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>4</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>reee</Nombre>
+    <Edad>22</Edad>
+    <Raza>2</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>5</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Mini nuevo</Nombre>
+    <Edad>2</Edad>
+    <Raza>2</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>6</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>ree</Nombre>
+    <Edad>3</Edad>
+    <Raza>3</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>7</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>ew</Nombre>
+    <Edad>2</Edad>
+    <Raza>2</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>8</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>negrito</Nombre>
+    <Edad>2</Edad>
+    <Raza>2</Raza>
+    <Historial>Fecha: 4/6/2022 
+
+Sigue vivo por suerte
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>9</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>cx</Nombre>
+    <Edad>33</Edad>
+    <Raza>3</Raza>
+    <Historial />
+  </Mascota>
+</ArrayOfMascota>

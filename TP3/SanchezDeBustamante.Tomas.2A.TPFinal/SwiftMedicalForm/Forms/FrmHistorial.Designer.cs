@@ -29,27 +29,16 @@ namespace SwiftMedicalForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.lblNuevoHistorial = new System.Windows.Forms.Label();
             this.rtbHistorial = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(786, 12);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(27, 28);
-            this.btnSalir.TabIndex = 44;
-            this.btnSalir.Text = "X";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
             // btnConfirmar
             // 
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConfirmar.Location = new System.Drawing.Point(338, 464);
+            this.btnConfirmar.Location = new System.Drawing.Point(346, 504);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(132, 31);
             this.btnConfirmar.TabIndex = 43;
@@ -71,18 +60,18 @@ namespace SwiftMedicalForm
             // lblNuevoHistorial
             // 
             this.lblNuevoHistorial.AutoSize = true;
-            this.lblNuevoHistorial.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNuevoHistorial.Location = new System.Drawing.Point(311, 65);
+            this.lblNuevoHistorial.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNuevoHistorial.Location = new System.Drawing.Point(303, 47);
             this.lblNuevoHistorial.Name = "lblNuevoHistorial";
-            this.lblNuevoHistorial.Size = new System.Drawing.Size(201, 37);
+            this.lblNuevoHistorial.Size = new System.Drawing.Size(219, 37);
             this.lblNuevoHistorial.TabIndex = 32;
             this.lblNuevoHistorial.Text = "Nuevo Historial";
             // 
             // rtbHistorial
             // 
-            this.rtbHistorial.Location = new System.Drawing.Point(84, 105);
+            this.rtbHistorial.Location = new System.Drawing.Point(83, 105);
             this.rtbHistorial.Name = "rtbHistorial";
-            this.rtbHistorial.Size = new System.Drawing.Size(658, 353);
+            this.rtbHistorial.Size = new System.Drawing.Size(658, 393);
             this.rtbHistorial.TabIndex = 45;
             this.rtbHistorial.Text = "";
             // 
@@ -93,7 +82,6 @@ namespace SwiftMedicalForm
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(825, 593);
             this.Controls.Add(this.rtbHistorial);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.lblNuevoHistorial);
@@ -108,8 +96,6 @@ namespace SwiftMedicalForm
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Label lblNuevoHistorial;

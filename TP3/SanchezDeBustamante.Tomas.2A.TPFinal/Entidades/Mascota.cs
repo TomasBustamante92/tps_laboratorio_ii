@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Entidades
 {
-    public class Animal : IDatos
+    public class Mascota : IDatos
     {
         public enum TipoAnimal { Gato, Perro, Ñandú };
         int id;
@@ -13,11 +13,11 @@ namespace Entidades
         string raza;
         string historial;
 
-        public Animal()
+        public Mascota()
         {
         }
 
-        public Animal(int id, TipoAnimal tipo, string nombre, int edad, string raza)
+        public Mascota(int id, TipoAnimal tipo, string nombre, int edad, string raza)
         {
             this.id = id;
             this.tipo = tipo;
@@ -27,7 +27,13 @@ namespace Entidades
             this.historial = string.Empty;
         }
 
-        public int ID
+        public Mascota(int id, TipoAnimal tipo, string nombre, int edad, string raza, string historial) :
+            this(id, tipo, nombre, edad, raza)
+        {
+            this.historial = historial;
+        }
+
+        public int Id
         {
             get { return this.id; }
             set { this.id = value; }
@@ -62,18 +68,6 @@ namespace Entidades
             get { return this.historial; }
             set { this.historial = value; }
         }
-
-        //public static int BuscarAnimalIdPorNombre(List<Animal> animales, string nombre)
-        //{
-        //    for (int i = 0; i < animales.Count; i++)
-        //    {
-        //        if (animales[i].nombre == nombre)
-        //        {
-        //            return i;
-        //        }
-        //    }
-        //    throw new NombreNoExisteEnLista();
-        //}
 
         public string Mostrar()
         {

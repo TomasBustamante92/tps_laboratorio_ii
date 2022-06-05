@@ -11,34 +11,34 @@ using Entidades;
 
 namespace SwiftMedicalForm
 {
-    public partial class FrmNuevo : Form
+    public partial class FrmDuenio : Form
     {
-        Serializador<Duenio> duenios = null;
+        Serializador<Duenio> dueniosJson = null;
         Duenio duenioAux = null;
         Duenio duenio = null;
         bool duenioModificado;
         int id;
 
-        public FrmNuevo()
+        public FrmDuenio()
         {
             InitializeComponent();
         }
 
-        public FrmNuevo(Serializador<Duenio> duenios, int ultimoId) : this()
+        public FrmDuenio(Serializador<Duenio> dueniosJson, int ultimoId) : this()
         {
-            this.duenios = duenios;
+            this.dueniosJson = dueniosJson;
             this.id = ultimoId + 1;
             this.duenioModificado = false;
         }
 
-        public FrmNuevo(Serializador<Duenio> duenios, Duenio d) : this()
+        public FrmDuenio(Serializador<Duenio> duenios, Duenio d) : this()
         {
-            this.duenioAux = new Duenio(d.ID, d.Nombre, d.Telefono, d.Direccion, d.IdAnimales);
+            this.duenioAux = new Duenio(d.Id, d.Nombre, d.Telefono, d.Direccion, d.IdMascotas);
             this.duenio = d;
-            this.id = duenio.ID;
+            this.id = duenio.Id;
             this.duenioModificado = true;
-            this.duenios = duenios;
-            CargarDuenio();
+            this.dueniosJson = duenios;
+            CargarDuenioForm();
         }
 
         public Duenio GetDuenio
@@ -48,18 +48,35 @@ namespace SwiftMedicalForm
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            if (this.duenioModificado == false &&
+                (!string.IsNullOrWhiteSpace(this.txtNombre.Text) ||
+                !string.IsNullOrWhiteSpace(this.txtTelefono.Text) ||
+                !string.IsNullOrWhiteSpace(this.txtDireccion.Text)))
+            {
+                DialogResult resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.OK)
+                {
+                    this.DialogResult = DialogResult.Cancel;
+                    this.Close();
+                }
+            }
+            else
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
 
         private void lblConfirmar_Click(object sender, EventArgs e)
         {
             int telefono;
-            bool numeroParseable = int.TryParse(txtTelefono.Text, out telefono);
+            bool telefonoEsNumero = int.TryParse(txtTelefono.Text, out telefono);
 
             if (!string.IsNullOrWhiteSpace(this.txtNombre.Text) &&
                 !string.IsNullOrWhiteSpace(this.txtTelefono.Text) &&
-                numeroParseable && !string.IsNullOrWhiteSpace(this.txtDireccion.Text))
+                telefonoEsNumero && !string.IsNullOrWhiteSpace(this.txtDireccion.Text))
             {
                 if(duenioModificado)
                 {
@@ -85,14 +102,16 @@ namespace SwiftMedicalForm
             }
             else
             {
-                MessageBox.Show(MensajeCampoVacio(numeroParseable));
+                MessageBox.Show(MensajeCampoVacio(this.txtNombre.Text, this.txtTelefono.Text,
+                    this.txtDireccion.Text, telefonoEsNumero));
             }
         }
 
         void AgregarDuenioBaseDeDatos(int telefono)
         {
             this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text);
-            if (this.duenios.Agregar(duenio))
+
+            if (this.dueniosJson.Agregar(duenio))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -110,25 +129,25 @@ namespace SwiftMedicalForm
             d.Direccion = this.txtDireccion.Text;
         }
 
-        string MensajeCampoVacio(bool numeroParseable)
+        string MensajeCampoVacio(string nombre, string telefono, string direccion, bool telefonoEsNumero)
         {
             StringBuilder sb = new StringBuilder();
 
-            if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 sb.AppendLine("El campo de Nombre esta vacio");
             }
 
-            if (string.IsNullOrWhiteSpace(this.txtTelefono.Text))
+            if (string.IsNullOrWhiteSpace(telefono))
             {
                 sb.AppendLine("El campo de Telefono esta vacio");
             }
-            else if (!numeroParseable)
+            else if (!telefonoEsNumero)
             {
                 sb.AppendLine("El campo de Telefono esta incorrecto");
             }
 
-            if (string.IsNullOrWhiteSpace(this.txtDireccion.Text))
+            if (string.IsNullOrWhiteSpace(direccion))
             {
                 sb.AppendLine("El campo de Dirección esta vacio");
             }
@@ -136,7 +155,7 @@ namespace SwiftMedicalForm
             return sb.ToString();
         }
 
-        void CargarDuenio()
+        void CargarDuenioForm()
         {
             this.lblNuevoDuenio.Text = "Modificar Dueño";
             this.lblConfirmar.Text = "Modificar";

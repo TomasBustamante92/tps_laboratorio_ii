@@ -1,7 +1,7 @@
 ﻿
 namespace SwiftMedicalForm
 {
-    partial class FrmMenuDuenio
+    partial class FrmMenuPrincipal
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,6 @@ namespace SwiftMedicalForm
             this.cmbMascota = new System.Windows.Forms.ComboBox();
             this.lblHistorial = new System.Windows.Forms.Label();
             this.btnNuevaEntrada = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.rtbHistorial = new System.Windows.Forms.RichTextBox();
             this.lblDatoTipo = new System.Windows.Forms.Label();
             this.lblDatoRaza = new System.Windows.Forms.Label();
@@ -52,6 +51,8 @@ namespace SwiftMedicalForm
             this.lblDireccion = new System.Windows.Forms.Label();
             this.gbDuenio = new System.Windows.Forms.GroupBox();
             this.gbMascota = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.gbDuenio.SuspendLayout();
             this.gbMascota.SuspendLayout();
             this.SuspendLayout();
@@ -69,20 +70,21 @@ namespace SwiftMedicalForm
             // 
             // lblNombreDuenio
             // 
-            this.lblNombreDuenio.AutoSize = true;
-            this.lblNombreDuenio.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNombreDuenio.Location = new System.Drawing.Point(291, 63);
+            this.lblNombreDuenio.AutoEllipsis = true;
+            this.lblNombreDuenio.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNombreDuenio.Location = new System.Drawing.Point(87, 63);
             this.lblNombreDuenio.Name = "lblNombreDuenio";
-            this.lblNombreDuenio.Size = new System.Drawing.Size(208, 37);
+            this.lblNombreDuenio.Size = new System.Drawing.Size(650, 37);
             this.lblNombreDuenio.TabIndex = 11;
             this.lblNombreDuenio.Text = "Nombre Duenio";
+            this.lblNombreDuenio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnNuevaMascota
             // 
             this.btnNuevaMascota.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNuevaMascota.Location = new System.Drawing.Point(578, 214);
+            this.btnNuevaMascota.Location = new System.Drawing.Point(555, 214);
             this.btnNuevaMascota.Name = "btnNuevaMascota";
-            this.btnNuevaMascota.Size = new System.Drawing.Size(102, 24);
+            this.btnNuevaMascota.Size = new System.Drawing.Size(98, 24);
             this.btnNuevaMascota.TabIndex = 17;
             this.btnNuevaMascota.Text = "Nueva Mascota";
             this.btnNuevaMascota.UseVisualStyleBackColor = true;
@@ -102,7 +104,7 @@ namespace SwiftMedicalForm
             // 
             this.lblRaza.AutoSize = true;
             this.lblRaza.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRaza.Location = new System.Drawing.Point(432, 65);
+            this.lblRaza.Location = new System.Drawing.Point(432, 69);
             this.lblRaza.Name = "lblRaza";
             this.lblRaza.Size = new System.Drawing.Size(52, 23);
             this.lblRaza.TabIndex = 24;
@@ -112,7 +114,7 @@ namespace SwiftMedicalForm
             // 
             this.lblEdad.AutoSize = true;
             this.lblEdad.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEdad.Location = new System.Drawing.Point(430, 29);
+            this.lblEdad.Location = new System.Drawing.Point(430, 30);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(55, 23);
             this.lblEdad.TabIndex = 23;
@@ -132,7 +134,7 @@ namespace SwiftMedicalForm
             // 
             this.lblMascota.AutoSize = true;
             this.lblMascota.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMascota.Location = new System.Drawing.Point(121, 214);
+            this.lblMascota.Location = new System.Drawing.Point(98, 214);
             this.lblMascota.Name = "lblMascota";
             this.lblMascota.Size = new System.Drawing.Size(91, 25);
             this.lblMascota.TabIndex = 27;
@@ -141,7 +143,7 @@ namespace SwiftMedicalForm
             // cmbMascota
             // 
             this.cmbMascota.FormattingEnabled = true;
-            this.cmbMascota.Location = new System.Drawing.Point(218, 215);
+            this.cmbMascota.Location = new System.Drawing.Point(195, 215);
             this.cmbMascota.Name = "cmbMascota";
             this.cmbMascota.Size = new System.Drawing.Size(354, 23);
             this.cmbMascota.TabIndex = 26;
@@ -150,103 +152,104 @@ namespace SwiftMedicalForm
             // lblHistorial
             // 
             this.lblHistorial.AutoSize = true;
-            this.lblHistorial.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblHistorial.Location = new System.Drawing.Point(279, 84);
+            this.lblHistorial.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblHistorial.Location = new System.Drawing.Point(305, 87);
             this.lblHistorial.Name = "lblHistorial";
-            this.lblHistorial.Size = new System.Drawing.Size(83, 23);
+            this.lblHistorial.Size = new System.Drawing.Size(56, 17);
             this.lblHistorial.TabIndex = 29;
-            this.lblHistorial.Text = "Historial:";
+            this.lblHistorial.Text = "Historial";
             // 
             // btnNuevaEntrada
             // 
             this.btnNuevaEntrada.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNuevaEntrada.Location = new System.Drawing.Point(264, 230);
+            this.btnNuevaEntrada.Location = new System.Drawing.Point(267, 241);
             this.btnNuevaEntrada.Name = "btnNuevaEntrada";
-            this.btnNuevaEntrada.Size = new System.Drawing.Size(132, 31);
+            this.btnNuevaEntrada.Size = new System.Drawing.Size(132, 22);
             this.btnNuevaEntrada.TabIndex = 30;
             this.btnNuevaEntrada.Text = "Nueva Entrada";
             this.btnNuevaEntrada.UseVisualStyleBackColor = true;
             this.btnNuevaEntrada.Click += new System.EventHandler(this.btnNuevaEntrada_Click);
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(786, 12);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(27, 28);
-            this.btnSalir.TabIndex = 31;
-            this.btnSalir.Text = "X";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // rtbHistorial
             // 
-            this.rtbHistorial.Location = new System.Drawing.Point(30, 110);
+            this.rtbHistorial.Location = new System.Drawing.Point(32, 104);
             this.rtbHistorial.Name = "rtbHistorial";
             this.rtbHistorial.ReadOnly = true;
-            this.rtbHistorial.Size = new System.Drawing.Size(603, 114);
+            this.rtbHistorial.Size = new System.Drawing.Size(603, 133);
             this.rtbHistorial.TabIndex = 32;
             this.rtbHistorial.Text = "";
             // 
             // lblDatoTipo
             // 
-            this.lblDatoTipo.AutoSize = true;
+            this.lblDatoTipo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoTipo.AutoEllipsis = true;
             this.lblDatoTipo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoTipo.Location = new System.Drawing.Point(170, 29);
+            this.lblDatoTipo.Location = new System.Drawing.Point(163, 31);
             this.lblDatoTipo.Name = "lblDatoTipo";
-            this.lblDatoTipo.Size = new System.Drawing.Size(37, 21);
+            this.lblDatoTipo.Size = new System.Drawing.Size(261, 21);
             this.lblDatoTipo.TabIndex = 36;
             this.lblDatoTipo.Text = "tipo";
+            this.lblDatoTipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDatoRaza
             // 
-            this.lblDatoRaza.AutoSize = true;
+            this.lblDatoRaza.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoRaza.AutoEllipsis = true;
             this.lblDatoRaza.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoRaza.Location = new System.Drawing.Point(489, 65);
+            this.lblDatoRaza.Location = new System.Drawing.Point(484, 70);
             this.lblDatoRaza.Name = "lblDatoRaza";
-            this.lblDatoRaza.Size = new System.Drawing.Size(39, 21);
+            this.lblDatoRaza.Size = new System.Drawing.Size(174, 21);
             this.lblDatoRaza.TabIndex = 35;
             this.lblDatoRaza.Text = "raza";
+            this.lblDatoRaza.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDatoEdad
             // 
-            this.lblDatoEdad.AutoSize = true;
+            this.lblDatoEdad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoEdad.AutoEllipsis = true;
             this.lblDatoEdad.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoEdad.Location = new System.Drawing.Point(489, 29);
+            this.lblDatoEdad.Location = new System.Drawing.Point(484, 31);
             this.lblDatoEdad.Name = "lblDatoEdad";
-            this.lblDatoEdad.Size = new System.Drawing.Size(44, 21);
+            this.lblDatoEdad.Size = new System.Drawing.Size(174, 21);
             this.lblDatoEdad.TabIndex = 34;
             this.lblDatoEdad.Text = "edad";
+            this.lblDatoEdad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDatoNombre
             // 
-            this.lblDatoNombre.AutoSize = true;
+            this.lblDatoNombre.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoNombre.AutoEllipsis = true;
             this.lblDatoNombre.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoNombre.Location = new System.Drawing.Point(117, 65);
+            this.lblDatoNombre.Location = new System.Drawing.Point(110, 66);
             this.lblDatoNombre.Name = "lblDatoNombre";
-            this.lblDatoNombre.Size = new System.Drawing.Size(65, 21);
+            this.lblDatoNombre.Size = new System.Drawing.Size(314, 21);
             this.lblDatoNombre.TabIndex = 33;
             this.lblDatoNombre.Text = "nombre";
+            this.lblDatoNombre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDatoTelefono
             // 
-            this.lblDatoTelefono.AutoSize = true;
+            this.lblDatoTelefono.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoTelefono.AutoEllipsis = true;
             this.lblDatoTelefono.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoTelefono.Location = new System.Drawing.Point(97, 27);
+            this.lblDatoTelefono.Location = new System.Drawing.Point(93, 26);
             this.lblDatoTelefono.Name = "lblDatoTelefono";
-            this.lblDatoTelefono.Size = new System.Drawing.Size(67, 21);
+            this.lblDatoTelefono.Size = new System.Drawing.Size(268, 21);
             this.lblDatoTelefono.TabIndex = 40;
             this.lblDatoTelefono.Text = "teléfono";
+            this.lblDatoTelefono.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDatoDireccion
             // 
-            this.lblDatoDireccion.AutoSize = true;
+            this.lblDatoDireccion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDatoDireccion.AutoEllipsis = true;
             this.lblDatoDireccion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDatoDireccion.Location = new System.Drawing.Point(458, 29);
+            this.lblDatoDireccion.Location = new System.Drawing.Point(453, 25);
             this.lblDatoDireccion.Name = "lblDatoDireccion";
-            this.lblDatoDireccion.Size = new System.Drawing.Size(75, 21);
+            this.lblDatoDireccion.Size = new System.Drawing.Size(205, 21);
             this.lblDatoDireccion.TabIndex = 39;
             this.lblDatoDireccion.Text = "Dirección";
+            this.lblDatoDireccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTelefono
             // 
@@ -262,7 +265,7 @@ namespace SwiftMedicalForm
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDireccion.Location = new System.Drawing.Point(367, 27);
+            this.lblDireccion.Location = new System.Drawing.Point(367, 24);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(90, 23);
             this.lblDireccion.TabIndex = 37;
@@ -303,22 +306,45 @@ namespace SwiftMedicalForm
             this.gbMascota.TabStop = false;
             this.gbMascota.Text = "Mascota";
             // 
-            // FrmMenuDuenio
+            // btnExportar
+            // 
+            this.btnExportar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExportar.Location = new System.Drawing.Point(12, 550);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(113, 31);
+            this.btnExportar.TabIndex = 37;
+            this.btnExportar.Text = "Exportar Mascota";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModificar.Location = new System.Drawing.Point(659, 214);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(68, 24);
+            this.btnModificar.TabIndex = 43;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(825, 593);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.gbMascota);
             this.Controls.Add(this.gbDuenio);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblMascota);
             this.Controls.Add(this.cmbMascota);
             this.Controls.Add(this.btnNuevaMascota);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.lblNombreDuenio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmMenuDuenio";
+            this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuDuenio";
             this.Load += new System.EventHandler(this.FrmMenuDuenio_Load);
@@ -344,7 +370,6 @@ namespace SwiftMedicalForm
         private System.Windows.Forms.ComboBox cmbMascota;
         private System.Windows.Forms.Label lblHistorial;
         private System.Windows.Forms.Button btnNuevaEntrada;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.RichTextBox rtbHistorial;
         private System.Windows.Forms.Label lblDatoTipo;
         private System.Windows.Forms.Label lblDatoRaza;
@@ -356,5 +381,7 @@ namespace SwiftMedicalForm
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.GroupBox gbDuenio;
         private System.Windows.Forms.GroupBox gbMascota;
+        private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }

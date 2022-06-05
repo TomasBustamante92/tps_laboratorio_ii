@@ -26,42 +26,22 @@ namespace Entidades
 
         public bool Agregar(T obj)
         {
-            if(obj is not null)
+            if(obj is not null && !EstaEnLista(obj))
             {
-                if(!EstaEnLista(obj))
-                {
-                    this.lista.Add(obj);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                this.lista.Add(obj);
+                return true;
             }
-            else
-            {
-                throw new NullReferenceException();
-            }
+            return false;
         }
 
         public bool Eliminar(T obj)
         {
-            if (obj is not null)
+            if (obj is not null && EstaEnLista(obj))
             {
-                if(EstaEnLista(obj))
-                {
-                    this.lista.Remove(obj);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                this.lista.Remove(obj);
+                return true;
             }
-            else
-            {
-                throw new NullReferenceException();
-            }
+            return false;
         }
 
         bool EstaEnLista(T obj)
@@ -101,7 +81,7 @@ namespace Entidades
             }
             else
             {
-                throw new Exception(); //INVENTAR ALGO
+                throw new ArchivoNoEncontradoException();
             }
         }
 
@@ -129,7 +109,7 @@ namespace Entidades
             }
             else
             {
-                throw new Exception(); //INVENTAR ALGO
+                throw new ArchivoNoEncontradoException();
             }
         }
     }

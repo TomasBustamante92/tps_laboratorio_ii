@@ -8,7 +8,7 @@ namespace Entidades
 {
     public interface IDatos
     {
-        int ID { get; set; }
+        int Id { get; set; }
 
         string Nombre { get; set; }
 

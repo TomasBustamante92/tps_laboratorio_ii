@@ -1,7 +1,7 @@
 ﻿
 namespace SwiftMedicalForm
 {
-    partial class FrmNuevo
+    partial class FrmDuenio
     {
         /// <summary>
         /// Required designer variable.
@@ -42,19 +42,22 @@ namespace SwiftMedicalForm
             // 
             // lblNuevoDuenio
             // 
-            this.lblNuevoDuenio.AutoSize = true;
-            this.lblNuevoDuenio.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNuevoDuenio.Location = new System.Drawing.Point(325, 65);
+            this.lblNuevoDuenio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNuevoDuenio.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNuevoDuenio.Location = new System.Drawing.Point(287, 60);
             this.lblNuevoDuenio.Name = "lblNuevoDuenio";
-            this.lblNuevoDuenio.Size = new System.Drawing.Size(181, 37);
+            this.lblNuevoDuenio.Size = new System.Drawing.Size(251, 37);
             this.lblNuevoDuenio.TabIndex = 0;
             this.lblNuevoDuenio.Text = "Nuevo Dueño";
+            this.lblNuevoDuenio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblNombreDuenio
             // 
             this.lblNombreDuenio.AutoSize = true;
             this.lblNombreDuenio.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNombreDuenio.Location = new System.Drawing.Point(246, 187);
+            this.lblNombreDuenio.Location = new System.Drawing.Point(282, 191);
             this.lblNombreDuenio.Name = "lblNombreDuenio";
             this.lblNombreDuenio.Size = new System.Drawing.Size(91, 25);
             this.lblNombreDuenio.TabIndex = 2;
@@ -64,7 +67,7 @@ namespace SwiftMedicalForm
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTelefono.Location = new System.Drawing.Point(243, 269);
+            this.lblTelefono.Location = new System.Drawing.Point(278, 276);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(94, 25);
             this.lblTelefono.TabIndex = 3;
@@ -74,7 +77,7 @@ namespace SwiftMedicalForm
             // 
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDireccion.Location = new System.Drawing.Point(235, 360);
+            this.lblDireccion.Location = new System.Drawing.Point(272, 359);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(101, 25);
             this.lblDireccion.TabIndex = 4;
@@ -83,7 +86,7 @@ namespace SwiftMedicalForm
             // lblConfirmar
             // 
             this.lblConfirmar.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblConfirmar.Location = new System.Drawing.Point(338, 465);
+            this.lblConfirmar.Location = new System.Drawing.Point(337, 465);
             this.lblConfirmar.Name = "lblConfirmar";
             this.lblConfirmar.Size = new System.Drawing.Size(151, 44);
             this.lblConfirmar.TabIndex = 6;
@@ -104,27 +107,29 @@ namespace SwiftMedicalForm
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(348, 187);
+            this.txtNombre.Location = new System.Drawing.Point(384, 192);
             this.txtNombre.Name = "txtNombre";
+            this.txtNombre.PlaceholderText = "Ej. Gaston Perez";
             this.txtNombre.Size = new System.Drawing.Size(168, 23);
             this.txtNombre.TabIndex = 8;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(348, 269);
+            this.txtTelefono.Location = new System.Drawing.Point(384, 276);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.PlaceholderText = "8 digitos - Ej. 12345678";
+            this.txtTelefono.PlaceholderText = "Ej. 41238888";
             this.txtTelefono.Size = new System.Drawing.Size(168, 23);
             this.txtTelefono.TabIndex = 9;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(348, 365);
+            this.txtDireccion.Location = new System.Drawing.Point(384, 360);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.PlaceholderText = "Ej. Calle Falsa 123";
             this.txtDireccion.Size = new System.Drawing.Size(168, 23);
             this.txtDireccion.TabIndex = 10;
             // 
-            // FrmNuevo
+            // FrmDuenio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -140,7 +145,7 @@ namespace SwiftMedicalForm
             this.Controls.Add(this.lblNombreDuenio);
             this.Controls.Add(this.lblNuevoDuenio);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmNuevo";
+            this.Name = "FrmDuenio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmNuevo";
             this.ResumeLayout(false);

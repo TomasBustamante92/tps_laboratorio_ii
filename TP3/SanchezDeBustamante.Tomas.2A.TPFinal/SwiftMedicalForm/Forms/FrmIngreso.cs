@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,13 +15,15 @@ namespace SwiftMedicalForm
     public partial class FrmIngreso : Form
     {
         const string PATH = "..\\..\\..\\Archivos";
-        Serializador<Duenio> duenios = null;
-        Serializador<int> ultimoIds = null; // [0 es Duenios - 1 es Animales]
+        Serializador<Duenio> dueniosJson = null;
+        Serializador<Mascota> mascotasXml = null;
+        Serializador<int> ultimoIds = null; 
 
         public FrmIngreso()
         {
             InitializeComponent();
-            this.duenios = new Serializador<Duenio>();
+            this.dueniosJson = new Serializador<Duenio>();
+            this.mascotasXml = new Serializador<Mascota>();
             this.ultimoIds = new Serializador<int>();
             this.ultimoIds.Agregar(0);
             this.ultimoIds.Agregar(0);
@@ -33,97 +36,95 @@ namespace SwiftMedicalForm
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmNuevo nuevo = new FrmNuevo(this.duenios, ultimoIds.Lista[0]); // sumarle ID
-            FrmMenuDuenio duenioFrm;
+            FrmDuenio nuevo = new FrmDuenio(this.dueniosJson, ultimoIds.Lista[0]); 
+            FrmMenuPrincipal duenioFrm;
             Duenio nuevoDuenio = null;
             DialogResult resultado = nuevo.ShowDialog();
-            DialogResult resultadoDuenio;
 
             if (resultado == DialogResult.OK)
             {
-                nuevoDuenio = nuevo.GetDuenio; // REFACTORIZAR PARA PASAR EL DUENIO SELECCIONADO
+                nuevoDuenio = nuevo.GetDuenio;
 
-                if(nuevoDuenio is not null)
+                if (nuevoDuenio is not null)
                 {
-                    duenioFrm = new FrmMenuDuenio(duenios, nuevoDuenio, ultimoIds.Lista[1]); 
+                    duenioFrm = new FrmMenuPrincipal(dueniosJson, mascotasXml, nuevoDuenio, ultimoIds.Lista[1]);
 
-                    this.ultimoIds.Lista[0] = nuevoDuenio.ID;
-                    resultadoDuenio = duenioFrm.ShowDialog();
+                    this.ultimoIds.Lista[0] = nuevoDuenio.Id;
+                    duenioFrm.ShowDialog();
                     this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
-
-                    if (resultadoDuenio != DialogResult.Abort) 
-                    {
-
-                    }
-                    else if (resultadoDuenio == DialogResult.Abort)
-                    {
-                        this.Close();
-                    }
                 }
                 else
                 {
-                    MessageBox.Show("Ta null");
+                    MessageBox.Show("Error al seleccionar el dueño");
                 }
             }
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            FrmCargarDuenio cargar = new FrmCargarDuenio(this.duenios);
-            FrmMenuDuenio duenioFrm;
+            FrmCargar cargar = new FrmCargar(this.dueniosJson);
+            FrmMenuPrincipal duenioFrm;
             DialogResult resultado = cargar.ShowDialog();
-            DialogResult resultadoDuenio;
 
             if (resultado == DialogResult.OK)
             {
-                duenioFrm = new FrmMenuDuenio(duenios, cargar.GetDuenioElegido(), ultimoIds.Lista[1]);
-                resultadoDuenio = duenioFrm.ShowDialog();
+                duenioFrm = new FrmMenuPrincipal(dueniosJson, mascotasXml, cargar.GetDuenioElegido(), ultimoIds.Lista[1]);
+                duenioFrm.ShowDialog();
                 this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
-
-                if (resultadoDuenio == DialogResult.OK) 
-                {
-
-                }
-                else if (resultadoDuenio == DialogResult.Abort)
-                {
-                    this.Close();
-                }
             }
         }
 
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
+            string fuenteDeError = string.Empty;
             try
             {
-                this.duenios.CargarListaJson(PATH, "Duenios");
-                this.ultimoIds.CargarListaJson(PATH, "UltimoId");
+                fuenteDeError = "Duenios"; 
+                this.dueniosJson.CargarListaJson(PATH, "Duenios"); 
+                fuenteDeError = "UltimoId"; 
+                this.ultimoIds.CargarListaJson(PATH, "UltimoId"); 
             }
-            catch (Exception)
+            catch (ArchivoNoEncontradoException)
             {
-                MessageBox.Show("No se encontró la base de datos");
+                MessageBox.Show($"ERROR!!! El archivo '{fuenteDeError}' no se pudo encontrar");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void FrmIngreso_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            string fuenteDeError = string.Empty;
+
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult resultado = MessageBox.Show("¿Guardar antes de salir?", "Alerta!",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
-                if(resultado == DialogResult.Yes)
+                if (resultado == DialogResult.Yes)
                 {
                     try
                     {
-                        this.duenios.GuardarListaJson(PATH, "Duenios");
+                        fuenteDeError = "Mascotas";
+                        this.mascotasXml.GuardarListaXml(PATH, "Mascotas");
+                        fuenteDeError = "Duenios";
+                        this.dueniosJson.GuardarListaJson(PATH, "Duenios");
+                        fuenteDeError = "UltimoId";
                         this.ultimoIds.GuardarListaJson(PATH, "UltimoId");
                     }
-                    catch (Exception)
+                    catch (ArchivoNoEncontradoException)
                     {
-                        MessageBox.Show("Pasaron cosas");
+                        MessageBox.Show($"No se pudo encontrar el archivo {fuenteDeError}");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                else if(resultado == DialogResult.Cancel)
+                else if (resultado == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }

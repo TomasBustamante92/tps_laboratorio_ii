@@ -50,7 +50,7 @@ namespace SwiftMedicalForm
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNuevo.Location = new System.Drawing.Point(340, 265);
+            this.btnNuevo.Location = new System.Drawing.Point(337, 265);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(151, 44);
             this.btnNuevo.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace SwiftMedicalForm
             // btnCargar
             // 
             this.btnCargar.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCargar.Location = new System.Drawing.Point(340, 370);
+            this.btnCargar.Location = new System.Drawing.Point(337, 370);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(151, 44);
             this.btnCargar.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace SwiftMedicalForm
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(340, 478);
+            this.btnSalir.Location = new System.Drawing.Point(337, 478);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(151, 44);
             this.btnSalir.TabIndex = 3;

@@ -1,47 +1,33 @@
 [
   {
-    "ID": 2,
-    "Nombre": "Nestor",
-    "Telefono": 2,
-    "Direccion": "2",
-    "IdAnimales": [
+    "Id": 1,
+    "Nombre": "Nestor aver que tan largo puede tener el nombre porquesi",
+    "Telefono": 26522222,
+    "Direccion": "avvveeeerr gastooon sabrosooo 1234",
+    "IdMascotas": [
       3,
-      4,
-      9
-    ]
-  },
-  {
-    "ID": 3,
-    "Nombre": "koko",
-    "Telefono": 1,
-    "Direccion": "2",
-    "IdAnimales": [
-      5,
       6,
-      7
-    ]
-  },
-  {
-    "ID": 5,
-    "Nombre": "Abuelo simson",
-    "Telefono": 3,
-    "Direccion": "3",
-    "IdAnimales": [
+      7,
       8
     ]
   },
   {
-    "ID": 6,
-    "Nombre": "asaza",
-    "Telefono": 22,
-    "Direccion": "a",
-    "IdAnimales": null
+    "Id": 2,
+    "Nombre": "Albertito",
+    "Telefono": 2,
+    "Direccion": "2",
+    "IdMascotas": [
+      4
+    ]
   },
   {
-    "ID": 7,
-    "Nombre": "Prueba",
-    "Telefono": 12,
-    "Direccion": "12",
-    "IdAnimales": null
+    "Id": 3,
+    "Nombre": "El nuevo",
+    "Telefono": 2,
+    "Direccion": "2",
+    "IdMascotas": [
+      5,
+      9
+    ]
   }
 ]

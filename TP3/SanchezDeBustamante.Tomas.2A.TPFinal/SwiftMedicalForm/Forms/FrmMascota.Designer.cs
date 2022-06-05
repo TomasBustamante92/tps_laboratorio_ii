@@ -1,7 +1,7 @@
 ﻿
 namespace SwiftMedicalForm
 {
-    partial class FrmAnimal
+    partial class FrmMascota
     {
         /// <summary>
         /// Required designer variable.
@@ -40,26 +40,25 @@ namespace SwiftMedicalForm
             this.lblNuevaMascota = new System.Windows.Forms.Label();
             this.cmbTipoAnimal = new System.Windows.Forms.ComboBox();
             this.lblTipoDeAnimal = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtRaza
             // 
-            this.txtRaza.Location = new System.Drawing.Point(389, 385);
+            this.txtRaza.Location = new System.Drawing.Point(363, 383);
             this.txtRaza.Name = "txtRaza";
             this.txtRaza.Size = new System.Drawing.Size(168, 23);
             this.txtRaza.TabIndex = 19;
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(389, 310);
+            this.txtEdad.Location = new System.Drawing.Point(363, 316);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(168, 23);
             this.txtEdad.TabIndex = 18;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(389, 236);
+            this.txtNombre.Location = new System.Drawing.Point(363, 248);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(168, 23);
             this.txtNombre.TabIndex = 17;
@@ -78,7 +77,7 @@ namespace SwiftMedicalForm
             // lblConfirmar
             // 
             this.lblConfirmar.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblConfirmar.Location = new System.Drawing.Point(338, 465);
+            this.lblConfirmar.Location = new System.Drawing.Point(337, 465);
             this.lblConfirmar.Name = "lblConfirmar";
             this.lblConfirmar.Size = new System.Drawing.Size(151, 44);
             this.lblConfirmar.TabIndex = 15;
@@ -90,7 +89,7 @@ namespace SwiftMedicalForm
             // 
             this.lblRaza.AutoSize = true;
             this.lblRaza.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblRaza.Location = new System.Drawing.Point(325, 380);
+            this.lblRaza.Location = new System.Drawing.Point(299, 383);
             this.lblRaza.Name = "lblRaza";
             this.lblRaza.Size = new System.Drawing.Size(58, 25);
             this.lblRaza.TabIndex = 14;
@@ -100,7 +99,7 @@ namespace SwiftMedicalForm
             // 
             this.lblEdad.AutoSize = true;
             this.lblEdad.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblEdad.Location = new System.Drawing.Point(323, 305);
+            this.lblEdad.Location = new System.Drawing.Point(297, 316);
             this.lblEdad.Name = "lblEdad";
             this.lblEdad.Size = new System.Drawing.Size(61, 25);
             this.lblEdad.TabIndex = 13;
@@ -110,7 +109,7 @@ namespace SwiftMedicalForm
             // 
             this.lblNombreDuenio.AutoSize = true;
             this.lblNombreDuenio.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNombreDuenio.Location = new System.Drawing.Point(296, 231);
+            this.lblNombreDuenio.Location = new System.Drawing.Point(267, 247);
             this.lblNombreDuenio.Name = "lblNombreDuenio";
             this.lblNombreDuenio.Size = new System.Drawing.Size(91, 25);
             this.lblNombreDuenio.TabIndex = 12;
@@ -118,18 +117,18 @@ namespace SwiftMedicalForm
             // 
             // lblNuevaMascota
             // 
-            this.lblNuevaMascota.AutoSize = true;
-            this.lblNuevaMascota.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNuevaMascota.Location = new System.Drawing.Point(327, 55);
+            this.lblNuevaMascota.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNuevaMascota.Location = new System.Drawing.Point(239, 65);
             this.lblNuevaMascota.Name = "lblNuevaMascota";
-            this.lblNuevaMascota.Size = new System.Drawing.Size(200, 37);
+            this.lblNuevaMascota.Size = new System.Drawing.Size(347, 37);
             this.lblNuevaMascota.TabIndex = 11;
             this.lblNuevaMascota.Text = "Nueva Mascota";
+            this.lblNuevaMascota.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbTipoAnimal
             // 
             this.cmbTipoAnimal.FormattingEnabled = true;
-            this.cmbTipoAnimal.Location = new System.Drawing.Point(389, 159);
+            this.cmbTipoAnimal.Location = new System.Drawing.Point(363, 180);
             this.cmbTipoAnimal.Name = "cmbTipoAnimal";
             this.cmbTipoAnimal.Size = new System.Drawing.Size(168, 23);
             this.cmbTipoAnimal.TabIndex = 20;
@@ -138,30 +137,18 @@ namespace SwiftMedicalForm
             // 
             this.lblTipoDeAnimal.AutoSize = true;
             this.lblTipoDeAnimal.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTipoDeAnimal.Location = new System.Drawing.Point(239, 154);
+            this.lblTipoDeAnimal.Location = new System.Drawing.Point(298, 180);
             this.lblTipoDeAnimal.Name = "lblTipoDeAnimal";
-            this.lblTipoDeAnimal.Size = new System.Drawing.Size(148, 25);
+            this.lblTipoDeAnimal.Size = new System.Drawing.Size(57, 25);
             this.lblTipoDeAnimal.TabIndex = 21;
-            this.lblTipoDeAnimal.Text = "Tipo de animal:";
+            this.lblTipoDeAnimal.Text = "Tipo:";
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSalir.Location = new System.Drawing.Point(786, 12);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(27, 28);
-            this.btnSalir.TabIndex = 22;
-            this.btnSalir.Text = "X";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // FrmAnimal
+            // FrmMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(825, 593);
-            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblTipoDeAnimal);
             this.Controls.Add(this.cmbTipoAnimal);
             this.Controls.Add(this.txtRaza);
@@ -174,7 +161,7 @@ namespace SwiftMedicalForm
             this.Controls.Add(this.lblNombreDuenio);
             this.Controls.Add(this.lblNuevaMascota);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmAnimal";
+            this.Name = "FrmMascota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAnimal";
             this.Load += new System.EventHandler(this.FrmAnimal_Load);
@@ -196,6 +183,5 @@ namespace SwiftMedicalForm
         private System.Windows.Forms.Label lblNuevaMascota;
         private System.Windows.Forms.ComboBox cmbTipoAnimal;
         private System.Windows.Forms.Label lblTipoDeAnimal;
-        private System.Windows.Forms.Button btnSalir;
     }
 }
