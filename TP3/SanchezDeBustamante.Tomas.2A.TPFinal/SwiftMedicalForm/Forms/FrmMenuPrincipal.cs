@@ -185,6 +185,10 @@ namespace SwiftMedicalForm
                     MessageBox.Show(ex.Message);
                 }
             }
+            else
+            {
+                this.rtbHistorial.Text = string.Empty;
+            }
             return false;
         }
 
@@ -267,6 +271,30 @@ namespace SwiftMedicalForm
         }
 
         /// <summary>
+        /// Elimina un id del array
+        /// </summary>
+        /// <param name="listaAEliminar"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        int[] EliminarId(int[] listaAEliminar, int id)
+        {
+            List<int> ids = new List<int>();
+
+            if (listaAEliminar is not null)
+            {
+                foreach (int item in listaAEliminar)
+                {
+                    if(item != id)
+                    {
+                        ids.Add(item);  
+                    }
+                }
+            }
+
+            return ids.ToArray();
+        }
+
+        /// <summary>
         /// Asocia el idMascotas de duenio con el id de mascota y los agrega a la lista
         /// </summary>
         void CargarListaMascotas()
@@ -313,6 +341,10 @@ namespace SwiftMedicalForm
             if (this.mascotas.Count != 0)
             {
                 this.cmbMascota.SelectedItem = this.cmbMascota.Items[0];
+            }
+            else
+            {
+                this.cmbMascota.SelectedItem = null;
             }
         }
 
@@ -389,29 +421,11 @@ namespace SwiftMedicalForm
 
                 if (resultado == DialogResult.OK)
                 {
+                    this.duenio.IdMascotas = EliminarId(this.duenio.IdMascotas, aux.Id);
                     this.mascotasXml.Eliminar(aux);
                     CargarListaMascotas();
                     CargarForm();
                     SeleccionarPrimeraOpcionPorDefault();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Elimina mascotas de la lista Serializador
-        /// </summary>
-        /// <param name="aux"></param>
-        void EliminarMascotas(Duenio aux)
-        {
-            foreach (int id in aux.IdMascotas)
-            {
-                foreach (Mascota item in this.mascotasXml.Lista)
-                {
-                    if (item.Id == id)
-                    {
-                        this.mascotasXml.Eliminar(item);
-                        break;
-                    }
                 }
             }
         }
