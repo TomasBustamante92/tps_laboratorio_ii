@@ -392,7 +392,7 @@ namespace SwiftMedicalForm
                     this.mascotasXml.Eliminar(aux);
                     CargarListaMascotas();
                     CargarForm();
-                    SeleccionarMascotaRecienCreada();
+                    SeleccionarPrimeraOpcionPorDefault();
                 }
             }
         }
