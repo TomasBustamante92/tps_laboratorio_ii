@@ -69,6 +69,10 @@ namespace Entidades
             set { this.historial = value; }
         }
 
+        /// <summary>
+        /// Devuelve los datos de la mascota
+        /// </summary>
+        /// <returns>string con los datos</returns>
         public string Mostrar()
         {
             return $"Nombre: {this.nombre} - Tipo: {this.tipo} - Edad: {this.edad} - Raza: {this.raza}";

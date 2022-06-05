@@ -24,6 +24,11 @@ namespace Entidades
             set { this.lista = value; }
         }
 
+        /// <summary>
+        /// Agrega un objeto a la lista si este no se encuentra ya en esta
+        /// </summary>
+        /// <param name="obj">objeto a agregar</param>
+        /// <returns>true si pudo agregarlo, caso contrario false</returns>
         public bool Agregar(T obj)
         {
             if(obj is not null && !EstaEnLista(obj))
@@ -34,6 +39,11 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Elimina un objeto de la lista si este se encuentra en esta
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>true si pudo eliminarlo, caso contrario false</returns>
         public bool Eliminar(T obj)
         {
             if (obj is not null && EstaEnLista(obj))
@@ -44,6 +54,11 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Busca en la lista si se encuentra el objeto pasado por parametro
+        /// </summary>
+        /// <param name="obj">objeto a buscar en lista</param>
+        /// <returns>true si lo encuentra, caso contrario false</returns>
         bool EstaEnLista(T obj)
         {
             if(obj is not int)
@@ -59,6 +74,11 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Guarda la lista en un archivo xml
+        /// </summary>
+        /// <param name="path">Lugar donde se guarda la lista</param>
+        /// <param name="nombreArchivo">nombre del archivo sin extensión</param>
         public void GuardarListaXml(string path, string nombreArchivo)
         {
             using(StreamWriter writer = new StreamWriter(path + $"\\{nombreArchivo}.xml"))
@@ -68,6 +88,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Carga la lista de un archivo xml, de no encontrarlo devuelve ArchivoNoEncontradoException
+        /// </summary>
+        /// <param name="path">Lugar donde se lee el archivo xml</param>
+        /// <param name="nombreArchivo">nombre del archivo sin extensión</param>
         public void CargarListaXml(string path, string nombreArchivo)
         {
             string pathCompleto = path + $"\\{nombreArchivo}.xml";
@@ -85,6 +110,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Guarda la lista en un archivo json
+        /// </summary>
+        /// <param name="path">Lugar donde se guarda la lista</param>
+        /// <param name="nombreArchivo">nombre del archivo sin extensión</param>
         public void GuardarListaJson(string path, string nombreArchivo)
         {
             using (StreamWriter writer = new StreamWriter(path + $"\\{nombreArchivo}.json"))
@@ -96,6 +126,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Carga la lista de un archivo json, de no encontrarlo devuelve ArchivoNoEncontradoException
+        /// </summary>
+        /// <param name="path">Lugar donde se lee el archivo json</param>
+        /// <param name="nombreArchivo">nombre del archivo sin extensión</param>
         public void CargarListaJson(string path, string nombreArchivo)
         {
             string pathCompleto = path + $"\\{nombreArchivo}.json";

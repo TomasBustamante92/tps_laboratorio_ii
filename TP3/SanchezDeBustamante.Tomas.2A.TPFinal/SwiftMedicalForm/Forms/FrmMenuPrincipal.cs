@@ -43,12 +43,22 @@ namespace SwiftMedicalForm
             get { return this.ultimoIdmascota; }
         }
 
+        /// <summary>
+        /// Vuelve al formulario anterior
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAtras_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
+        /// <summary>
+        /// Abre el form para crear una nueva mascota
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevaMascota_Click(object sender, EventArgs e)
         {
             FrmMascota Mascota = new FrmMascota(this.mascotasXml, this.ultimoIdmascota);
@@ -64,6 +74,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Abre el form para agregar una entrada al historial de la mascota seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevaEntrada_Click(object sender, EventArgs e)
         {
             FrmHistorial historial = new FrmHistorial();
@@ -91,28 +106,43 @@ namespace SwiftMedicalForm
             
         }
 
+        /// <summary>
+        /// Carga los datos del duenio y mascota para mostrar por pantalla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMenuDuenio_Load(object sender, EventArgs e)
         {
-            this.lblDatoNombre.Text = string.Empty;
-            this.lblDatoEdad.Text = string.Empty;
-            this.lblDatoRaza.Text = string.Empty;
-            this.lblDatoTipo.Text = string.Empty;
-            this.lblNombreDuenio.Text = this.duenio.Nombre;
-            this.lblDatoDireccion.Text = this.duenio.Direccion;
-            this.lblDatoTelefono.Text = this.duenio.Telefono.ToString();
+            try
+            {
+                this.lblDatoNombre.Text = string.Empty;
+                this.lblDatoEdad.Text = string.Empty;
+                this.lblDatoRaza.Text = string.Empty;
+                this.lblDatoTipo.Text = string.Empty;
+                this.lblNombreDuenio.Text = this.duenio.Nombre;
+                this.lblDatoDireccion.Text = this.duenio.Direccion;
+                this.lblDatoTelefono.Text = this.duenio.Telefono.ToString();
 
-            CargarArchivoXml();
-            CargarListaMascotas();
-            CargarForm();
-            SeleccionarPrimeraOpcionPorDefault();
+                CargarListaMascotas();
+                CargarForm();
+                SeleccionarPrimeraOpcionPorDefault();
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("No se seleccionó ningun Dueño");
+                Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        void CargarForm()
-        {
-            ActualizarHistorial();
-            CargarMascotasEnComboBox();
-        }
-
+        /// <summary>
+        /// Carga lo escrito en RichTextBox al historial de la mascota y agrega la fecha
+        /// </summary>
+        /// <param name="h"></param>
+        /// <param name="a"></param>
         void CargarHistorial(string h, Mascota a)
         {
             this.historial.Clear();
@@ -124,6 +154,19 @@ namespace SwiftMedicalForm
             this.rtbHistorial.Text = a.Historial;
         }
 
+        /// <summary>
+        /// Actualiza informacion a mostrar en el form
+        /// </summary>
+        void CargarForm()
+        {
+            ActualizarHistorial();
+            CargarMascotasEnComboBox();
+        }
+
+        /// <summary>
+        /// Carga el RichTexBox con el historial de la mascota
+        /// </summary>
+        /// <returns></returns>
         bool ActualizarHistorial()
         {
             Mascota aux;
@@ -145,6 +188,12 @@ namespace SwiftMedicalForm
             return false;
         }
 
+        /// <summary>
+        /// Cambia los datos mostrados en pantalla por los de la mascota
+        /// seleccionada en el ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMascota_SelectedIndexChanged(object sender, EventArgs e)
         {
             Mascota aux = (Mascota)this.cmbMascota.SelectedItem;
@@ -158,6 +207,49 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Abre un form para modificar los datos de la mascota
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Mascota aux;
+            FrmMascota modificar;
+
+            if (this.cmbMascota.SelectedItem is not null)
+            {
+                aux = (Mascota)this.cmbMascota.SelectedItem;
+                modificar = new FrmMascota(this.mascotasXml, aux);
+                modificar.ShowDialog();
+                CargarMascotasEnComboBox();
+                this.cmbMascota.SelectedItem = aux;
+            }
+        }
+
+        /// <summary>
+        /// Exporta los datos del duenio y mascota a un archivo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ExportarArchivo(DatosDeMascota());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Agrega el id nuevo en el array de id de mascota
+        /// </summary>
+        /// <param name="listaAAgregar"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         int[] AgregarId(int[] listaAAgregar, int id)
         {
             List<int> ids = new List<int>();
@@ -174,18 +266,9 @@ namespace SwiftMedicalForm
             return ids.ToArray();
         }
 
-        void CargarArchivoXml()
-        {
-            try
-            {
-                this.mascotasXml.CargarListaXml(PATH, "Mascotas");
-            }
-            catch
-            {
-                MessageBox.Show("No se pudo cargar el archivo Mascotas");
-            }
-        }
-
+        /// <summary>
+        /// Asocia el idMascotas de duenio con el id de mascota y los agrega a la lista
+        /// </summary>
         void CargarListaMascotas()
         {
             this.mascotas.Clear(); 
@@ -212,6 +295,9 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Actualiza el ComboBox
+        /// </summary>
         void CargarMascotasEnComboBox()
         {
             this.cmbMascota.DataSource = null;
@@ -219,6 +305,9 @@ namespace SwiftMedicalForm
             this.cmbMascota.DataSource = this.mascotas;
         }
 
+        /// <summary>
+        /// Apenas se abre el form de existir una mascota elige la primer opción
+        /// </summary>
         void SeleccionarPrimeraOpcionPorDefault()
         {
             if (this.mascotas.Count != 0)
@@ -227,23 +316,18 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Despues de crear una mascota se elige la ultima en el ComboBox
+        /// </summary>
         void SeleccionarMascotaRecienCreada()
         {
             this.cmbMascota.SelectedItem = this.cmbMascota.Items[this.mascotas.Count - 1];
         }
 
-        private void btnExportar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ExportarArchivo(DatosDeMascota());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
+        /// <summary>
+        /// Pregunta al usuario donde quiere guardar el archivo y lo guarda
+        /// </summary>
+        /// <param name="contenido"></param>
         void ExportarArchivo(string contenido)
         {
             SaveFileDialog save = new SaveFileDialog();
@@ -260,6 +344,10 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Prepara los datos a guardar en el txt
+        /// </summary>
+        /// <returns>datos a guardar</returns>
         string DatosDeMascota()
         {
             StringBuilder sb = new StringBuilder();
@@ -285,18 +373,46 @@ namespace SwiftMedicalForm
             return sb.ToString();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Elimina un animal de la lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnBorrar_Click(object sender, EventArgs e)
         {
-            Mascota aux;
-            FrmMascota modificar;
-
             if (this.cmbMascota.SelectedItem is not null)
             {
-                aux = (Mascota)this.cmbMascota.SelectedItem;
-                modificar = new FrmMascota(this.mascotasXml, aux);
-                modificar.ShowDialog();
-                CargarMascotasEnComboBox();
-                this.cmbMascota.SelectedItem = aux;
+                Mascota aux = (Mascota)this.cmbMascota.SelectedItem;
+
+                DialogResult resultado = MessageBox.Show($"¿Esta seguro que desea eliminar a {aux.Nombre}?", "Alerta!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.OK)
+                {
+                    this.mascotasXml.Eliminar(aux);
+                    CargarListaMascotas();
+                    CargarForm();
+                    SeleccionarMascotaRecienCreada();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Elimina mascotas de la lista Serializador
+        /// </summary>
+        /// <param name="aux"></param>
+        void EliminarMascotas(Duenio aux)
+        {
+            foreach (int id in aux.IdMascotas)
+            {
+                foreach (Mascota item in this.mascotasXml.Lista)
+                {
+                    if (item.Id == id)
+                    {
+                        this.mascotasXml.Eliminar(item);
+                        break;
+                    }
+                }
             }
         }
     }

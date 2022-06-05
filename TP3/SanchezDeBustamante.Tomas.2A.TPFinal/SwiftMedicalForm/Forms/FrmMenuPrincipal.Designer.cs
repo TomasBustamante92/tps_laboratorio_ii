@@ -53,6 +53,7 @@ namespace SwiftMedicalForm
             this.gbMascota = new System.Windows.Forms.GroupBox();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             this.gbDuenio.SuspendLayout();
             this.gbMascota.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +83,7 @@ namespace SwiftMedicalForm
             // btnNuevaMascota
             // 
             this.btnNuevaMascota.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNuevaMascota.Location = new System.Drawing.Point(555, 214);
+            this.btnNuevaMascota.Location = new System.Drawing.Point(518, 213);
             this.btnNuevaMascota.Name = "btnNuevaMascota";
             this.btnNuevaMascota.Size = new System.Drawing.Size(98, 24);
             this.btnNuevaMascota.TabIndex = 17;
@@ -134,7 +135,7 @@ namespace SwiftMedicalForm
             // 
             this.lblMascota.AutoSize = true;
             this.lblMascota.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMascota.Location = new System.Drawing.Point(98, 214);
+            this.lblMascota.Location = new System.Drawing.Point(61, 213);
             this.lblMascota.Name = "lblMascota";
             this.lblMascota.Size = new System.Drawing.Size(91, 25);
             this.lblMascota.TabIndex = 27;
@@ -143,7 +144,7 @@ namespace SwiftMedicalForm
             // cmbMascota
             // 
             this.cmbMascota.FormattingEnabled = true;
-            this.cmbMascota.Location = new System.Drawing.Point(195, 215);
+            this.cmbMascota.Location = new System.Drawing.Point(158, 214);
             this.cmbMascota.Name = "cmbMascota";
             this.cmbMascota.Size = new System.Drawing.Size(354, 23);
             this.cmbMascota.TabIndex = 26;
@@ -320,7 +321,7 @@ namespace SwiftMedicalForm
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.Location = new System.Drawing.Point(659, 214);
+            this.btnModificar.Location = new System.Drawing.Point(622, 213);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(68, 24);
             this.btnModificar.TabIndex = 43;
@@ -328,12 +329,24 @@ namespace SwiftMedicalForm
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBorrar.Location = new System.Drawing.Point(696, 213);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(68, 24);
+            this.btnBorrar.TabIndex = 44;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(825, 593);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.gbMascota);
@@ -383,5 +396,6 @@ namespace SwiftMedicalForm
         private System.Windows.Forms.GroupBox gbMascota;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

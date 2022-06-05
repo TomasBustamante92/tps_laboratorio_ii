@@ -18,6 +18,7 @@ namespace SwiftMedicalForm
         Duenio duenio = null;
         bool duenioModificado;
         int id;
+        DialogResult resultado;
 
         public FrmDuenio()
         {
@@ -46,6 +47,12 @@ namespace SwiftMedicalForm
             get { return this.duenio; }
         }
 
+        /// <summary>
+        /// Si se escribió algo se pregunta si esta de acuerdo en volver al form anterior, 
+        /// si no escribió nada se cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAtras_Click(object sender, EventArgs e)
         {
             if (this.duenioModificado == false &&
@@ -53,7 +60,7 @@ namespace SwiftMedicalForm
                 !string.IsNullOrWhiteSpace(this.txtTelefono.Text) ||
                 !string.IsNullOrWhiteSpace(this.txtDireccion.Text)))
             {
-                DialogResult resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
+                resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.OK)
@@ -69,6 +76,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Carga los datos ingresados en el form a un dueño
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblConfirmar_Click(object sender, EventArgs e)
         {
             int telefono;
@@ -82,22 +94,23 @@ namespace SwiftMedicalForm
                 {
                     ModificarDuenio(this.duenioAux, telefono);
 
-                    DialogResult result = MessageBox.Show(this.duenioAux.ToString(), "¿Está seguro de realizar estos cambios?",
+                    resultado = MessageBox.Show(this.duenioAux.ToString(), "¿Está seguro de realizar estos cambios?",
                         MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-                    if (result == DialogResult.Yes)
+                    if (resultado == DialogResult.Yes)
                     {
                         ModificarDuenio(this.duenio, telefono);
                         Close();
                     }
-                    else if (result == DialogResult.No)
+                    else if (resultado == DialogResult.No)
                     {
                         Close();
                     }
                 }
                 else
                 {
-                    AgregarDuenioBaseDeDatos(telefono);
+                    this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text);
+                    AgregarDuenioALista(this.duenio);
                 }
             }
             else
@@ -107,11 +120,13 @@ namespace SwiftMedicalForm
             }
         }
 
-        void AgregarDuenioBaseDeDatos(int telefono)
+        /// <summary>
+        /// Intenta agregar el duenio a la lista Serializador, si no puede aparece un mensaje en pantalla
+        /// </summary>
+        /// <param name="d">Duenio a agregar</param>
+        void AgregarDuenioALista(Duenio d)
         {
-            this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text);
-
-            if (this.dueniosJson.Agregar(duenio))
+            if (this.dueniosJson.Agregar(d))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -122,6 +137,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Carga el objeto Duenio con los datos ingresados
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="telefono"></param>
         void ModificarDuenio(Duenio d, int telefono)
         {
             d.Nombre = this.txtNombre.Text;
@@ -129,6 +149,14 @@ namespace SwiftMedicalForm
             d.Direccion = this.txtDireccion.Text;
         }
 
+        /// <summary>
+        /// Evalua si alguno de los campos a completar está vacio y si lo están devuelve un mensaje
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="telefono"></param>
+        /// <param name="direccion"></param>
+        /// <param name="telefonoEsNumero"></param>
+        /// <returns>mensaje de alerta</returns>
         string MensajeCampoVacio(string nombre, string telefono, string direccion, bool telefonoEsNumero)
         {
             StringBuilder sb = new StringBuilder();
@@ -155,6 +183,9 @@ namespace SwiftMedicalForm
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Carga los datos del duenio a modificar
+        /// </summary>
         void CargarDuenioForm()
         {
             this.lblNuevoDuenio.Text = "Modificar Dueño";

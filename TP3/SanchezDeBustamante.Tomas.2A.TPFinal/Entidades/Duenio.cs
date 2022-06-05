@@ -62,12 +62,20 @@ namespace Entidades
             set { this.idMascotas = value; }
         }
 
+        /// <summary>
+        /// Devuelve los datos del dueño
+        /// </summary>
+        /// <returns>string con los datos</returns>
         public string Mostrar()
         {
             return $"Nombre: {this.nombre} - Telefono: {this.telefono} - Dirección: {this.direccion}" +
                 $" - Cantidad de mascotas: {ContarMascotas()}";
         }
 
+        /// <summary>
+        /// Cuenta la cantidad de mascotas que tiene el dueño
+        /// </summary>
+        /// <returns>int con la cantidad de mascotas</returns>
         int ContarMascotas()
         {
             int cantidadMascotas = 0;
@@ -84,6 +92,11 @@ namespace Entidades
             return Mostrar();
         }
 
+        /// <summary>
+        /// Evalua que los Duenios sean iguales por Nombre-Telefono-Direccion
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>bool</returns>
         public override bool Equals(object obj)
         {
             Duenio aux = obj as Duenio;

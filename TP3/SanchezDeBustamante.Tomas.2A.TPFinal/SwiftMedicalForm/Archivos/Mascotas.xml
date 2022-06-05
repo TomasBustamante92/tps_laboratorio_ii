@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfMascota xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Mascota>
-    <Id>3</Id>
-    <Tipo>Gato</Tipo>
-    <Nombre>gfsasaasfsrfsdxdfcfrdrdr</Nombre>
-    <Edad>4554635</Edad>
-    <Raza>4hgfhfhgfhgfhgfhfghfghfghfghfgh</Raza>
-    <Historial>Fecha: 4/6/2022 
+    <Id>1</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Carlitos</Nombre>
+    <Edad>2</Edad>
+    <Raza>Galgo</Raza>
+    <Historial>Fecha: 5/6/2022 
 
-Dia 500 ... creo que empieza a notar mi presencia
+Vacuna contra la rabia
 
 ------------------------------------ 
 
-Fecha: 4/6/2022 
+Fecha: 5/6/2022 
 
-Dia 250... aun respira
+Se esguinzó la pata trasera derecha
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>2</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Kaito</Nombre>
+    <Edad>1</Edad>
+    <Raza>Shiba</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Chequeo generál
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>3</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Nestor</Nombre>
+    <Edad>4</Edad>
+    <Raza>Rhea americana</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Tuvo un ACV
 
 ------------------------------------ 
 
@@ -23,55 +51,73 @@ Dia 250... aun respira
   <Mascota>
     <Id>4</Id>
     <Tipo>Gato</Tipo>
-    <Nombre>reee</Nombre>
-    <Edad>22</Edad>
-    <Raza>2</Raza>
-    <Historial />
-  </Mascota>
-  <Mascota>
-    <Id>5</Id>
-    <Tipo>Gato</Tipo>
-    <Nombre>Mini nuevo</Nombre>
-    <Edad>2</Edad>
-    <Raza>2</Raza>
-    <Historial />
-  </Mascota>
-  <Mascota>
-    <Id>6</Id>
-    <Tipo>Gato</Tipo>
-    <Nombre>ree</Nombre>
+    <Nombre>Kiwi</Nombre>
     <Edad>3</Edad>
-    <Raza>3</Raza>
-    <Historial />
-  </Mascota>
-  <Mascota>
-    <Id>7</Id>
-    <Tipo>Gato</Tipo>
-    <Nombre>ew</Nombre>
-    <Edad>2</Edad>
-    <Raza>2</Raza>
-    <Historial />
-  </Mascota>
-  <Mascota>
-    <Id>8</Id>
-    <Tipo>Gato</Tipo>
-    <Nombre>negrito</Nombre>
-    <Edad>2</Edad>
-    <Raza>2</Raza>
-    <Historial>Fecha: 4/6/2022 
+    <Raza>persa</Raza>
+    <Historial>Fecha: 5/6/2022 
 
-Sigue vivo por suerte
+cortarle el pelo
 
 ------------------------------------ 
 
 </Historial>
   </Mascota>
   <Mascota>
-    <Id>9</Id>
+    <Id>5</Id>
     <Tipo>Gato</Tipo>
-    <Nombre>cx</Nombre>
-    <Edad>33</Edad>
-    <Raza>3</Raza>
+    <Nombre>Marcelo</Nombre>
+    <Edad>2</Edad>
+    <Raza>Siberiano</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Castrar
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>6</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Pablito</Nombre>
+    <Edad>10</Edad>
+    <Raza>Galgo</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Le duele la columna
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>7</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Nachelli</Nombre>
+    <Edad>1</Edad>
+    <Raza>Pterocnemia pennata</Raza>
     <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>8</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Nachosky</Nombre>
+    <Edad>6</Edad>
+    <Raza>Husky siberiano</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>11</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Sanchito</Nombre>
+    <Edad>17</Edad>
+    <Raza>gato</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Problemas estomacales
+
+------------------------------------ 
+
+</Historial>
   </Mascota>
 </ArrayOfMascota>

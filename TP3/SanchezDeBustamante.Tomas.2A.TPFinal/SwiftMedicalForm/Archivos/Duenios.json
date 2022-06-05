@@ -1,33 +1,51 @@
 [
   {
     "Id": 1,
-    "Nombre": "Nestor aver que tan largo puede tener el nombre porquesi",
-    "Telefono": 26522222,
-    "Direccion": "avvveeeerr gastooon sabrosooo 1234",
+    "Nombre": "Pablo Gutierrez",
+    "Telefono": 48754821,
+    "Direccion": "Av. Cordoba 524",
     "IdMascotas": [
-      3,
+      1
+    ]
+  },
+  {
+    "Id": 2,
+    "Nombre": "Joaquin Von Vulfen",
+    "Telefono": 41202032,
+    "Direccion": "Pacheco 5843",
+    "IdMascotas": [
+      2,
+      3
+    ]
+  },
+  {
+    "Id": 3,
+    "Nombre": "Marcelo Schiarti",
+    "Telefono": 48026458,
+    "Direccion": "Fraga 453",
+    "IdMascotas": [
+      4
+    ]
+  },
+  {
+    "Id": 4,
+    "Nombre": "Gaston Nanni",
+    "Telefono": 46359860,
+    "Direccion": "Suecia 666",
+    "IdMascotas": [
+      5,
       6,
       7,
       8
     ]
   },
   {
-    "Id": 2,
-    "Nombre": "Albertito",
-    "Telefono": 2,
-    "Direccion": "2",
+    "Id": 6,
+    "Nombre": "Maria Haramburu",
+    "Telefono": 42513659,
+    "Direccion": "Serrano 9 3/4",
     "IdMascotas": [
-      4
-    ]
-  },
-  {
-    "Id": 3,
-    "Nombre": "El nuevo",
-    "Telefono": 2,
-    "Direccion": "2",
-    "IdMascotas": [
-      5,
-      9
+      11
     ]
   }
 ]

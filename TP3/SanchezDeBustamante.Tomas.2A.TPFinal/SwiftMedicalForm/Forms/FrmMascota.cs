@@ -19,6 +19,7 @@ namespace SwiftMedicalForm
         bool MascotaModificada;
         int ultimoId;
         int id;
+        DialogResult resultado;
 
         public FrmMascota()
         {
@@ -52,6 +53,12 @@ namespace SwiftMedicalForm
             get { return this.mascota; }
         }
 
+        /// <summary>
+        /// Si se escribió algo se pregunta si esta de acuerdo en volver al form anterior, 
+        /// si no escribió nada se cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAtras_Click(object sender, EventArgs e)
         {
             if (this.MascotaModificada == false &&
@@ -59,7 +66,7 @@ namespace SwiftMedicalForm
                  !string.IsNullOrWhiteSpace(this.txtNombre.Text) ||
                  !string.IsNullOrWhiteSpace(this.txtRaza.Text)))
             {
-                DialogResult resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
+                resultado = MessageBox.Show("Si vuelve atras se borrarán los datos", "Alerta!",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.OK)
@@ -75,6 +82,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Carga los datos ingresados en el form a una mascota
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lblConfirmar_Click(object sender, EventArgs e)
         {
             int edad;
@@ -86,24 +98,24 @@ namespace SwiftMedicalForm
             {
                 if(MascotaModificada)
                 {
-                    ModificarMascota(this.animalAux, edad);
+                    ModificarMascota(this.animalAux, edad); 
 
-                    DialogResult result = MessageBox.Show(this.animalAux.ToString(), "¿Está seguro de realizar estos cambios?",
+                    resultado = MessageBox.Show(this.animalAux.ToString(), "¿Está seguro de realizar estos cambios?",
                         MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
 
-                    if (result == DialogResult.Yes)
+                    if (resultado == DialogResult.Yes)
                     {
-                        ModificarMascota(this.mascota, edad);
+                        ModificarMascota(this.mascota, edad); 
                         Close();
                     }
-                    else if (result == DialogResult.No)
+                    else if (resultado == DialogResult.No)
                     {
                         Close();
                     }
                 }
                 else
                 {
-                    AgregarMascotaABaseDeDatos(edad);
+                    AgregarMascotaALista(edad);
                 }
             }
             else
@@ -112,6 +124,24 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Carga las opciones del ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmAnimal_Load(object sender, EventArgs e)
+        {
+            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Gato);
+            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Perro);
+            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Ñandú);
+            this.cmbTipoAnimal.SelectedItem = Mascota.TipoAnimal.Gato;
+        }
+
+        /// <summary>
+        /// Evalua si alguno de los campos a completar está vacio y si lo están devuelve un mensaje
+        /// </summary>
+        /// <param name="numeroParseable"></param>
+        /// <returns></returns>
         string MensajeCampoVacio(bool numeroParseable)
         {
             StringBuilder sb = new StringBuilder();
@@ -138,10 +168,13 @@ namespace SwiftMedicalForm
             return sb.ToString();
         }
 
-        void AgregarMascotaABaseDeDatos(int edad)
+        /// <summary>
+        /// Intenta agregar la mascota a la lista Serializador, si no puede aparece un mensaje en pantalla
+        /// </summary>
+        /// <param name="edad"></param>
+        void AgregarMascotaALista(int edad)
         {
             Mascota.TipoAnimal tipoAux = (Mascota.TipoAnimal)this.cmbTipoAnimal.SelectedItem;
-
             this.ultimoId++;
             this.mascota = new Mascota(this.ultimoId, tipoAux, txtNombre.Text, edad, txtRaza.Text);
 
@@ -156,14 +189,9 @@ namespace SwiftMedicalForm
             }
         }
 
-        private void FrmAnimal_Load(object sender, EventArgs e)
-        {
-            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Gato);
-            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Perro);
-            this.cmbTipoAnimal.Items.Add(Mascota.TipoAnimal.Ñandú);
-            this.cmbTipoAnimal.SelectedItem = Mascota.TipoAnimal.Gato;
-        }
-
+        /// <summary>
+        /// Carga los datos de la mascota a modificar
+        /// </summary>
         void CargarMascota()
         {
             this.lblNuevaMascota.Text = "Modificar Mascota";
@@ -173,12 +201,17 @@ namespace SwiftMedicalForm
             this.txtRaza.Text = this.Mascota.Raza;
         }
 
-        void ModificarMascota(Mascota a, int edad)
+        /// <summary>
+        /// Modifica el objeto mascota con lo ingresado por el usuario
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="edad"></param>
+        void ModificarMascota(Mascota m, int edad)
         {
-            a.Nombre = this.txtNombre.Text;
-            a.Edad = edad;
-            a.Tipo = (Mascota.TipoAnimal)this.cmbTipoAnimal.SelectedItem;
-            a.Raza = this.txtRaza.Text;
+            m.Nombre = this.txtNombre.Text;
+            m.Edad = edad;
+            m.Tipo = (Mascota.TipoAnimal)this.cmbTipoAnimal.SelectedItem;
+            m.Raza = this.txtRaza.Text;
         }
     }
 }

@@ -17,7 +17,11 @@ namespace SwiftMedicalForm
         const string PATH = "..\\..\\..\\Archivos";
         Serializador<Duenio> dueniosJson = null;
         Serializador<Mascota> mascotasXml = null;
-        Serializador<int> ultimoIds = null; 
+        Serializador<int> ultimoIds = null; // 0=duenios 1=mascotas
+        FrmDuenio frmNuevoDuenio;
+        FrmMenuPrincipal frmMenuPrincipal;
+        FrmCargar frmCargar;
+        DialogResult resultado;
 
         public FrmIngreso()
         {
@@ -25,33 +29,41 @@ namespace SwiftMedicalForm
             this.dueniosJson = new Serializador<Duenio>();
             this.mascotasXml = new Serializador<Mascota>();
             this.ultimoIds = new Serializador<int>();
-            this.ultimoIds.Agregar(0);
-            this.ultimoIds.Agregar(0);
+            this.ultimoIds.Agregar(0); 
+            this.ultimoIds.Agregar(0); 
         }
 
+        /// <summary>
+        /// Cierra la App
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Abre un form para crear un nuevo duenio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            FrmDuenio nuevo = new FrmDuenio(this.dueniosJson, ultimoIds.Lista[0]); 
-            FrmMenuPrincipal duenioFrm;
             Duenio nuevoDuenio = null;
-            DialogResult resultado = nuevo.ShowDialog();
+            frmNuevoDuenio = new FrmDuenio(this.dueniosJson, ultimoIds.Lista[0]); 
+            resultado = frmNuevoDuenio.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
-                nuevoDuenio = nuevo.GetDuenio;
+                nuevoDuenio = frmNuevoDuenio.GetDuenio;
 
                 if (nuevoDuenio is not null)
                 {
-                    duenioFrm = new FrmMenuPrincipal(dueniosJson, mascotasXml, nuevoDuenio, ultimoIds.Lista[1]);
-
+                    frmMenuPrincipal = new FrmMenuPrincipal(dueniosJson, mascotasXml, nuevoDuenio, ultimoIds.Lista[1]);
                     this.ultimoIds.Lista[0] = nuevoDuenio.Id;
-                    duenioFrm.ShowDialog();
-                    this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
+                    frmMenuPrincipal.ShowDialog();
+                    this.ultimoIds.Lista[1] = frmMenuPrincipal.UltimoId;
                 }
                 else
                 {
@@ -60,33 +72,40 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Abre un form para ver la lista de duenios
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            FrmCargar cargar = new FrmCargar(this.dueniosJson);
-            FrmMenuPrincipal duenioFrm;
-            DialogResult resultado = cargar.ShowDialog();
+            frmCargar = new FrmCargar(this.dueniosJson, this.mascotasXml);
+            resultado = frmCargar.ShowDialog();
 
             if (resultado == DialogResult.OK)
             {
-                duenioFrm = new FrmMenuPrincipal(dueniosJson, mascotasXml, cargar.GetDuenioElegido(), ultimoIds.Lista[1]);
-                duenioFrm.ShowDialog();
-                this.ultimoIds.Lista[1] = duenioFrm.UltimoId;
+                frmMenuPrincipal = new FrmMenuPrincipal(dueniosJson, mascotasXml, frmCargar.GetDuenioElegido(), ultimoIds.Lista[1]);
+                frmMenuPrincipal.ShowDialog();
+                this.ultimoIds.Lista[1] = frmMenuPrincipal.UltimoId;
             }
         }
 
+        /// <summary>
+        /// Lee los archivos Json de duenios y ultimoId y los carga a la lista Serializador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmIngreso_Load(object sender, EventArgs e)
         {
-            string fuenteDeError = string.Empty;
             try
             {
-                fuenteDeError = "Duenios"; 
                 this.dueniosJson.CargarListaJson(PATH, "Duenios"); 
-                fuenteDeError = "UltimoId"; 
-                this.ultimoIds.CargarListaJson(PATH, "UltimoId"); 
+                this.ultimoIds.CargarListaJson(PATH, "UltimoId");
+                this.mascotasXml.CargarListaXml(PATH, "Mascotas");
             }
             catch (ArchivoNoEncontradoException)
             {
-                MessageBox.Show($"ERROR!!! El archivo '{fuenteDeError}' no se pudo encontrar");
+                MessageBox.Show($"ERROR!!! No se pudieron encontrar los archivos");
 
             }
             catch (Exception ex)
@@ -95,29 +114,30 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Pregunta al usuario si desea guardar antes de salir
+        /// Caso que si guarda los archivos duenios, mascotas y ultimoId
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmIngreso_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string fuenteDeError = string.Empty;
-
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult resultado = MessageBox.Show("¿Guardar antes de salir?", "Alerta!",
+                resultado = MessageBox.Show("¿Guardar antes de salir?", "Alerta!",
                     MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
                 if (resultado == DialogResult.Yes)
                 {
                     try
                     {
-                        fuenteDeError = "Mascotas";
                         this.mascotasXml.GuardarListaXml(PATH, "Mascotas");
-                        fuenteDeError = "Duenios";
                         this.dueniosJson.GuardarListaJson(PATH, "Duenios");
-                        fuenteDeError = "UltimoId";
                         this.ultimoIds.GuardarListaJson(PATH, "UltimoId");
                     }
                     catch (ArchivoNoEncontradoException)
                     {
-                        MessageBox.Show($"No se pudo encontrar el archivo {fuenteDeError}");
+                        MessageBox.Show($"ERROR!!! No se pudieron encontrar los archivos");
                     }
                     catch (Exception ex)
                     {
