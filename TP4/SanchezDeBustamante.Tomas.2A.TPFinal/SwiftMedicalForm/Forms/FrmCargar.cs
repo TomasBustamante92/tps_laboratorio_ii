@@ -110,8 +110,6 @@ namespace SwiftMedicalForm
                 if (resultado == DialogResult.OK)
                 {
                     aux.Activo = false;
-                    //this.dueniosJson.Eliminar(aux);
-                    //EliminarMascotas(aux);
                     CargarListbox();
                 }
             }
@@ -126,6 +124,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Recibe un objeto Duenio y devuelve la cantidad de mascotas
+        /// </summary>
+        /// <param name="duenio"></param>
+        /// <returns></returns>
         public int ContarMascotasPorDuenio(Duenio duenio)
         {
             int contador = 0;
@@ -167,7 +170,6 @@ namespace SwiftMedicalForm
         /// </summary>
         void CargarListbox()
         {
-            //this.lbListaDuenios.DataSource = null;
             this.lbListaDuenios.Items.Clear();
 
             foreach (Duenio duenio in this.dueniosJson.Lista)
@@ -178,26 +180,6 @@ namespace SwiftMedicalForm
                     this.lbListaDuenios.Items.Add(duenio);
                 }
             }
-            //this.lbListaDuenios.DataSource = this.dueniosJson.Lista;
-        }
-
-        /// <summary>
-        /// Elimina mascotas de la lista Serializador
-        /// </summary>
-        /// <param name="aux"></param>
-        void EliminarMascotas(Duenio aux)
-        {
-            //foreach (int id in aux.IdMascotas)
-            //{
-            //    foreach (Mascota item in this.mascotasXml.Lista)
-            //    {
-            //        if (item.Id == id)
-            //        {
-            //            this.mascotasXml.Eliminar(item);
-            //            break;
-            //        }
-            //    }
-            //}
         }
     }
 }

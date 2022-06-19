@@ -2,6 +2,7 @@
 using Entidades;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace Test
 {
@@ -47,7 +48,7 @@ namespace Test
         public void CargarArchivoJson_RecibeListaDuenios_Correcto()
         {
             // Arrange
-            string path = "..\\..\\..\\Archivos";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Archivos"; ;
             Serializador<Duenio> duenios = new Serializador<Duenio>();
 
             // Act
@@ -61,7 +62,7 @@ namespace Test
         public void CargarArchivoJson_RecibeExcepcion()
         {
             // Arrange
-            string path = "..\\..\\..\\Archivos";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Archivos"; ;
             Serializador<Duenio> duenios = new Serializador<Duenio>();
 
             // Act
@@ -73,7 +74,7 @@ namespace Test
         public void CargarArchivoXml_RecibeListaMascotas_Correcto()
         {
             // Arrange
-            string path = "..\\..\\..\\Archivos";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Archivos"; ;
             Serializador<Mascota> mascotas = new Serializador<Mascota>();
 
             // Act
@@ -87,7 +88,7 @@ namespace Test
         public void CargarArchivoXml_RecibeExcepcion()
         {
             // Arrange
-            string path = "..\\..\\..\\Archivos";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "\\Archivos"; ;
             Serializador<Mascota> mascotas = new Serializador<Mascota>();
 
             // Act

@@ -17,7 +17,6 @@ namespace SwiftMedicalForm
 {
     public partial class FrmIngreso : Form
     {
-        public static string cadenaDeConeccion = "Server=.;Database=SwiftMedicalDB;Trusted_Connection=True;";
         string path = AppDomain.CurrentDomain.BaseDirectory + "\\Archivos";
         Serializador<Duenio> dueniosSql = null;
         Serializador<Duenio> dueniosSqlOriginal = null;
@@ -120,15 +119,17 @@ namespace SwiftMedicalForm
                 this.ultimoIds.CargarListaJson(path, "UltimoId");
                 player.PlayLooping();
                 estaSonando = true;
-                this.CargarDueniosSql(cadenaDeConeccion);
-                this.CargarMascotasSql(cadenaDeConeccion);
-
+                DuenioDAO.CargarDueniosSql(dueniosSql, dueniosSqlOriginal);
+                MascotaDAO.CargarMascotasSql(mascotasSql, mascotasSqlOriginal);
                 MoverCartel();
             }
-            catch(ArchivoNoEncontradoException)
+            catch (MascotaModificadaException)
+            {
+                MessageBox.Show("ERROR!!! Un tipo de mascota fue modificado fuera del programa");
+            }
+            catch (ArchivoNoEncontradoException)
             {
                 MessageBox.Show("ERROR!!! No se pudieron encontrar los archivos");
-
             }
             catch (Exception ex)
             {
@@ -153,8 +154,8 @@ namespace SwiftMedicalForm
                 {
                     try
                     {
-                        GuardarDueniosSql();
-                        GuardarMascotasSql();
+                        DuenioDAO.GuardarDueniosSql(dueniosSql, dueniosSqlOriginal);
+                        MascotaDAO.GuardarMascotasSql(mascotasSql, mascotasSqlOriginal);
                         this.ultimoIds.GuardarListaJson(path, "UltimoId");
                     }
                     catch (ArchivoNoEncontradoException)
@@ -173,6 +174,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Boton para reproducir musica o pausarla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMusica_Click(object sender, EventArgs e)
         {
             if (estaSonando)
@@ -191,6 +197,9 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Crea un hilo nuevo para mover un cartel
+        /// </summary>
         private void MoverCartel()
         {
             try
@@ -205,6 +214,9 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Mientras no se haya cancelado va a mover un cartel de derecha a izquierda
+        /// </summary>
         void LoopearCartel()
         {
             while (!cancellationToken.IsCancellationRequested)
@@ -220,6 +232,10 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Mueve lblAviso de derecha a izquierda
+        /// </summary>
+        /// <param name="ejeX"></param>
         void IniciarCartel(int ejeX)
         {
             if (this.InvokeRequired)
@@ -230,162 +246,6 @@ namespace SwiftMedicalForm
             else
             {
                 this.lblAviso.Left = ejeX;
-            }
-        }
-
-        // TODO: mover a una clase propia
-        void CargarDueniosSql(string cadenaDeConeccion)
-        {
-            string query = "select * from duenios";
-
-            using (SqlConnection connection = new SqlConnection(cadenaDeConeccion))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                while(reader.Read())
-                {
-                    int id = reader.GetInt32(0);
-                    string nombre = reader.GetString(1);
-                    int telefono = reader.GetInt32(2);
-                    string direccion = reader.GetString(3);
-                    bool activo = reader.GetBoolean(4);
-
-                    if(activo)
-                    {
-                        Duenio aux = new Duenio(id, nombre, telefono, direccion, activo);
-                        Duenio aux2 = new Duenio(id, nombre, telefono, direccion, activo);
-                        this.dueniosSql.Agregar(aux);
-                        this.dueniosSqlOriginal.Agregar(aux2);
-                    }
-                }
-            }
-        }
-
-        // TODO: mover a una clase propia
-        // TODO: puede haber una excepcion si cambiamos el tipo en el sql y lo intenta castar
-        void CargarMascotasSql(string cadenaDeConeccion)
-        {
-            string query = "select * from mascotas";
-
-            using (SqlConnection connection = new SqlConnection(cadenaDeConeccion))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                try
-                {
-                    while (reader.Read())
-                    {
-                        int id = reader.GetInt32(0);
-                        TipoAnimal tipo = CambiarFormatoTipoAnimal(reader.GetString(1));
-                        string nombre = reader.GetString(2);
-                        int edad = reader.GetInt32(3);
-                        string raza = reader.GetString(4);
-                        string historial = reader.GetString(5);
-                        int idDuenio = reader.GetInt32(6);
-                        bool activo = reader.GetBoolean(7);
-
-                        if (activo)
-                        {
-                            Mascota aux = new Mascota(id, tipo, nombre, edad, raza, historial, idDuenio, activo);
-                            Mascota aux2 = new Mascota(id, tipo, nombre, edad, raza, historial, idDuenio, activo);
-                            this.mascotasSql.Agregar(aux);
-                            this.mascotasSqlOriginal.Agregar(aux2);
-                        }
-                    }
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    MessageBox.Show("ERROR!!! Un tipo de mascota fue modificado fuera del programa");
-                }
-            }
-        }
-
-        public TipoAnimal CambiarFormatoTipoAnimal(string tipo)
-        {
-            TipoAnimal retorno;
-
-            switch (tipo)
-            {
-                case "Gato":
-                    retorno = TipoAnimal.Gato;
-                    break;
-
-                case "Perro":
-                    retorno = TipoAnimal.Perro;
-                    break;
-
-                case "Ñandú":
-                    retorno = TipoAnimal.Ñandú;
-                    break;
-                default:
-                    throw new IndexOutOfRangeException();
-            }
-            return retorno;
-        }
-
-        // TODO: mandarlo a otra clase
-        public void GuardarDueniosSql()
-        {
-            bool esta;
-
-            foreach (Duenio duenioNuevo in this.dueniosSql.Lista)
-            {
-                esta = false;
-
-                foreach (Duenio duenio in this.dueniosSqlOriginal.Lista)
-                {
-                    if (duenio.Id == duenioNuevo.Id && !duenio.Equals(duenioNuevo))
-                    {
-                        duenioNuevo.Modificar(cadenaDeConeccion);
-                        esta = true;
-                        break;
-                    }
-                    else if (duenio.Id == duenioNuevo.Id && duenio.Equals(duenioNuevo))
-                    {
-                        esta = true;
-                        break;
-                    }
-                }
-
-                if (!esta)
-                {
-                    duenioNuevo.Agregar(cadenaDeConeccion);
-                }
-            }
-        }
-
-        // TODO: mandarlo a otra clase
-        public void GuardarMascotasSql()
-        {
-            bool esta;
-
-            foreach (Mascota mascotaNueva in this.mascotasSql.Lista)
-            {
-                esta = false;
-
-                foreach (Mascota mascota in this.mascotasSqlOriginal.Lista)
-                {
-                    if (mascota.Id == mascotaNueva.Id && !mascota.Equals(mascotaNueva))
-                    {
-                        mascotaNueva.Modificar(cadenaDeConeccion);
-                        esta = true;
-                        break;
-                    }
-                    else if (mascota.Id == mascotaNueva.Id && mascota.Equals(mascotaNueva))
-                    {
-                        esta = true;
-                        break;
-                    }
-                }
-
-                if (!esta)
-                {
-                    mascotaNueva.Agregar(cadenaDeConeccion);
-                }
             }
         }
     }

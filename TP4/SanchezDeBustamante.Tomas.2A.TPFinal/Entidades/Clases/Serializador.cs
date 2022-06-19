@@ -40,21 +40,6 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Elimina un objeto de la lista si este se encuentra en esta
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns>true si pudo eliminarlo, caso contrario false</returns>
-        public bool Eliminar(T obj)
-        {
-            if (obj is not null && EstaEnLista(obj))
-            {
-                this.lista.Remove(obj);
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
         /// Busca en la lista si se encuentra el objeto pasado por parametro
         /// </summary>
         /// <param name="obj">objeto a buscar en lista</param>

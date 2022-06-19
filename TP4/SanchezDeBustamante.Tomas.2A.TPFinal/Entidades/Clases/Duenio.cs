@@ -9,13 +9,12 @@ namespace Entidades
 {
     public class Duenio : IDatos
     {
+        public event DelegadoCantidadMascotas ContarMascotasPorDuenio;
         int id;
         string nombre;
         int telefono;
         string direccion;
         bool activo;
-
-        public event DelegadoCantidadMascotas ContarMascotasPorDuenio;
 
         public Duenio()
         {
@@ -29,7 +28,8 @@ namespace Entidades
             this.activo = true;
         }
 
-        public Duenio(int id, string nombre, int telefono, string direccion, bool activo) : this(nombre,telefono,direccion)
+        public Duenio(int id, string nombre, int telefono, string direccion, bool activo)
+            : this(nombre,telefono,direccion)
         {
             this.id = id;
             this.activo = activo;
@@ -83,21 +83,6 @@ namespace Entidades
             return retorno;
         }
 
-        /// <summary>
-        /// Cuenta la cantidad de mascotas que tiene el dueño
-        /// </summary>
-        /// <returns>int con la cantidad de mascotas</returns>
-        //int ContarMascotas()
-        //{
-        //    int cantidadMascotas = 0;
-
-        //    if (this.idMascotas is not null)
-        //    {
-        //        cantidadMascotas = this.idMascotas.Length;
-        //    }
-        //    return cantidadMascotas;
-        //}
-
         public override string ToString()
         {
             return Mostrar();
@@ -113,67 +98,6 @@ namespace Entidades
             Duenio aux = obj as Duenio;
             return aux is not null && this.nombre == aux.nombre &&
                 this.telefono == aux.telefono && this.direccion == aux.direccion && this.activo == aux.activo;
-        }
-
-        public void Agregar(string cadenaDeConeccion)
-        {
-            string query = "insert into duenios (id,nombre,telefono,direccion,activo)" +
-                " values (@id,@nombre,@telefono,@direccion,@activo)";
-
-            using (SqlConnection connection = new SqlConnection(cadenaDeConeccion))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("id", this.id);
-                command.Parameters.AddWithValue("nombre", this.nombre);
-                command.Parameters.AddWithValue("telefono", this.telefono);
-                command.Parameters.AddWithValue("direccion", this.direccion);
-                command.Parameters.AddWithValue("activo", this.activo);
-                command.ExecuteNonQuery();
-            }
-        }
-
-        public void Borrar(string cadenaDeConeccion)
-        {
-            string query = "delete from duenios where id=@id";
-
-            using (SqlConnection connection = new SqlConnection(cadenaDeConeccion))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("id", this.id);
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-        }
-
-        public void Modificar(string cadenaDeConeccion)
-        {
-            string query = "update duenios set nombre=@nombre,telefono=@telefono,direccion=@direccion,activo=@activo where id=@id";
-
-            using (SqlConnection connection = new SqlConnection(cadenaDeConeccion))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("id", this.id);
-                command.Parameters.AddWithValue("nombre", this.nombre);
-                command.Parameters.AddWithValue("telefono", this.telefono);
-                command.Parameters.AddWithValue("direccion", this.direccion);
-                command.Parameters.AddWithValue("activo", CambiarBoolPorInt(this.activo));
-                connection.Open();
-                command.ExecuteNonQuery();
-            }
-        }
-
-        // TODO: hacerlo static??? se repite en duemascota
-        int CambiarBoolPorInt(bool b)
-        {
-            if (b)
-            {
-                return 1;
-            }
-            else
-            {
-                return 0;
-            }
         }
     }
 }

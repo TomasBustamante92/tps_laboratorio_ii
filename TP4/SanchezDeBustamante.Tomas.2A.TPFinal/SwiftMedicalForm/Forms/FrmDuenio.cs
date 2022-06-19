@@ -13,11 +13,8 @@ namespace SwiftMedicalForm
 {
     public partial class FrmDuenio : Form
     {
-        //Serializador<Duenio> dueniosJson = null;
         Serializador<Duenio> dueniosSql = null;
-
         Duenio duenioAux = null;
-
         Duenio duenio = null;
         bool duenioModificado;
         int id;
@@ -28,19 +25,6 @@ namespace SwiftMedicalForm
             InitializeComponent();
         }
 
-        //public FrmDuenio(Serializador<Duenio> dueniosJson, int ultimoId) : this()
-        //{
-        //    this.dueniosJson = dueniosJson;
-        //    this.id = ultimoId + 1;
-        //    this.duenioModificado = false;
-        //}
-
-        //public FrmDuenio(Serializador<Duenio> dueniosJson) : this()
-        //{
-        //    this.dueniosJson = dueniosJson;
-        //    this.duenioModificado = false;
-        //}
-
         public FrmDuenio(Serializador<Duenio> dueniosSql, int ultimoId) : this()
         {
             this.dueniosSql = dueniosSql;
@@ -50,9 +34,7 @@ namespace SwiftMedicalForm
 
         public FrmDuenio(Serializador<Duenio> duenios, Duenio d) : this()
         {
-            //this.duenioSql = new Duenio(d.Id, d.Nombre, d.Telefono, d.Direccion, d.IdMascotas);
             this.duenioAux = new Duenio(d.Id, d.Nombre, d.Telefono, d.Direccion, d.Activo);
-
             this.duenio = d;
             this.id = duenio.Id;
             this.duenioModificado = true;
@@ -127,7 +109,6 @@ namespace SwiftMedicalForm
                 }
                 else
                 {
-                    //this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text);
                     this.duenio = new Duenio(this.id, this.txtNombre.Text, telefono, this.txtDireccion.Text, true);
                     AgregarDuenioALista(this.duenio);
                 }

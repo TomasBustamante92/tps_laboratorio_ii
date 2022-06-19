@@ -13,6 +13,7 @@ namespace SwiftMedicalForm
 {
     public partial class FrmMascota : Form
     {
+        DelegadoCargarMascotaEnLista delegadoCargarMascotaEnLista;
         Mascota mascota = null;
         Mascota animalAux = null;
         int idDuenio;
@@ -20,8 +21,6 @@ namespace SwiftMedicalForm
         int ultimoId;
         int id;
         DialogResult resultado;
-
-        DelegadoCargarMascotaEnLista delegadoCargarMascotaEnLista;
 
         public FrmMascota()
         {

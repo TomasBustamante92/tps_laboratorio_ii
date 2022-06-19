@@ -58,9 +58,7 @@ namespace SwiftMedicalForm
         /// <param name="e"></param>
         private void btnNuevaMascota_Click(object sender, EventArgs e)
         {
-            //FrmMascota Mascota = new FrmMascota(this.mascotasSql, this.duenio.Id, this.ultimoIdmascota);
             FrmMascota Mascota = new FrmMascota(CargarMascotaEnLista, this.duenio.Id, this.ultimoIdmascota);
-
 
             if (Mascota.ShowDialog() == DialogResult.OK)
             {
@@ -72,6 +70,11 @@ namespace SwiftMedicalForm
             }
         }
 
+        /// <summary>
+        /// Agrega una mascota a la lista, caso contrario avisa que esta
+        /// ya se encuentra en la base de datos
+        /// </summary>
+        /// <param name="mascota"></param>
         void CargarMascotaEnLista(Mascota mascota)
         {
             if (!this.mascotasSql.Agregar(mascota))
@@ -216,6 +219,14 @@ namespace SwiftMedicalForm
                 this.lblDatoEdad.Text = aux.Edad.ToString();
                 this.lblDatoRaza.Text = aux.Raza;
                 this.lblDatoTipo.Text = aux.Tipo.ToString();
+            }
+            else
+            {
+                this.lblDatoNombre.Text = string.Empty;
+                this.lblDatoEdad.Text = string.Empty;
+                this.lblDatoRaza.Text = string.Empty;
+                this.lblDatoTipo.Text = string.Empty;
+                this.rtbHistorial.Text = string.Empty;
             }
         }
 
