@@ -54,6 +54,7 @@ namespace Test
             // Act
             duenios.CargarListaJson(path + "ejemplo.json");
 
+            // Assert
             Assert.IsNotNull(duenios);
         }
 
@@ -80,6 +81,7 @@ namespace Test
             // Act
             mascotas.CargarListaXml(path + "Mascotas.xml");
 
+            // Assert
             Assert.IsNotNull(mascotas);
         }
 
