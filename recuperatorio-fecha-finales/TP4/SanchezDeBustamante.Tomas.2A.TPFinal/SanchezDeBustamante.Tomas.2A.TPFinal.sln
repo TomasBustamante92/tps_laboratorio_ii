@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwiftMedicalForm", "SwiftMedicalForm\SwiftMedicalForm.csproj", "{AEE4FD26-4D18-4C05-9546-F529DB7D9EC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{D6A48486-0547-4300-8821-6C15D3EA8595}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{43B9F930-D0C2-4A7B-9293-59B2936888B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE4FD26-4D18-4C05-9546-F529DB7D9EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE4FD26-4D18-4C05-9546-F529DB7D9EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE4FD26-4D18-4C05-9546-F529DB7D9EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE4FD26-4D18-4C05-9546-F529DB7D9EC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6A48486-0547-4300-8821-6C15D3EA8595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6A48486-0547-4300-8821-6C15D3EA8595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6A48486-0547-4300-8821-6C15D3EA8595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6A48486-0547-4300-8821-6C15D3EA8595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43B9F930-D0C2-4A7B-9293-59B2936888B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43B9F930-D0C2-4A7B-9293-59B2936888B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43B9F930-D0C2-4A7B-9293-59B2936888B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43B9F930-D0C2-4A7B-9293-59B2936888B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E0A4137-39DB-4C32-A55B-2894841B7299}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,134 @@
+[
+  {
+    "Id": 2,
+    "Nombre": "Joaquin Von Vulfen",
+    "Telefono": 41202032,
+    "Direccion": "Pacheco 5843",
+    "IdMascotas": [
+      2,
+      3
+    ]
+  },
+  {
+    "Id": 3,
+    "Nombre": "Marcelo Schiarti",
+    "Telefono": 48026458,
+    "Direccion": "Fraga 453",
+    "IdMascotas": [
+      4
+    ]
+  },
+  {
+    "Id": 4,
+    "Nombre": "Gaston Nanni",
+    "Telefono": 46359860,
+    "Direccion": "Suecia 666",
+    "IdMascotas": [
+      5,
+      6,
+      7,
+      8
+    ]
+  },
+  {
+    "Id": 6,
+    "Nombre": "Maria Haramburu",
+    "Telefono": 42513659,
+    "Direccion": "Serrano 9 3/4",
+    "IdMascotas": [
+      11
+    ]
+  },
+  {
+    "Id": 7,
+    "Nombre": "Stephen King",
+    "Telefono": 41234567,
+    "Direccion": "Misery 4522",
+    "IdMascotas": [
+      12
+    ]
+  },
+  {
+    "Id": 8,
+    "Nombre": "Will Smith",
+    "Telefono": 458753254,
+    "Direccion": "Estados Unidos 7775",
+    "IdMascotas": [
+      13
+    ]
+  },
+  {
+    "Id": 9,
+    "Nombre": "Madonna",
+    "Telefono": 4,
+    "Direccion": "Londres 653",
+    "IdMascotas": [
+      14
+    ]
+  },
+  {
+    "Id": 10,
+    "Nombre": "Goku Kakarotto",
+    "Telefono": 45875621,
+    "Direccion": "Namekusei 123",
+    "IdMascotas": [
+      15
+    ]
+  },
+  {
+    "Id": 11,
+    "Nombre": "Pepe Argeto",
+    "Telefono": 41203590,
+    "Direccion": "Av. Santa Fe 5642",
+    "IdMascotas": [
+      16
+    ]
+  },
+  {
+    "Id": 12,
+    "Nombre": "Ash Ketchup",
+    "Telefono": 48885201,
+    "Direccion": "Pueblo Paleta 4452",
+    "IdMascotas": [
+      17
+    ]
+  },
+  {
+    "Id": 13,
+    "Nombre": "Steven Spielberg",
+    "Telefono": 41252120,
+    "Direccion": "Estados Unidos 1253",
+    "IdMascotas": [
+      18,
+      19
+    ]
+  },
+  {
+    "Id": 14,
+    "Nombre": "Harry Potter",
+    "Telefono": 42012365,
+    "Direccion": "Hogwards 9 3/4",
+    "IdMascotas": [
+      20
+    ]
+  },
+  {
+    "Id": 15,
+    "Nombre": "Super Mario",
+    "Telefono": 42012548,
+    "Direccion": "Mushroom Kingdom 4650",
+    "IdMascotas": [
+      21
+    ]
+  },
+  {
+    "Id": 16,
+    "Nombre": "Neo el Elegido",
+    "Telefono": 42135458,
+    "Direccion": "Matrix 4567",
+    "IdMascotas": [
+      23,
+      24
+    ]
+  }
+]

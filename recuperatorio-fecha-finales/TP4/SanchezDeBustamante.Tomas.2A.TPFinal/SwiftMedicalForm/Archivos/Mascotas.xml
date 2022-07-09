@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMascota xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Mascota>
+    <Id>2</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Kaito</Nombre>
+    <Edad>1</Edad>
+    <Raza>Shiba</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Chequeo generál
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>3</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Nestor</Nombre>
+    <Edad>4</Edad>
+    <Raza>Rhea americana</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Tuvo un ACV
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>4</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Kiwi</Nombre>
+    <Edad>3</Edad>
+    <Raza>persa</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+cortarle el pelo
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>5</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Marcelo</Nombre>
+    <Edad>2</Edad>
+    <Raza>Siberiano</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Castrar
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>6</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Pablito</Nombre>
+    <Edad>10</Edad>
+    <Raza>Galgo</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Le duele la columna
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>7</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Nachelli</Nombre>
+    <Edad>1</Edad>
+    <Raza>Pterocnemia pennata</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>8</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Nachosky</Nombre>
+    <Edad>6</Edad>
+    <Raza>Husky siberiano</Raza>
+    <Historial />
+  </Mascota>
+  <Mascota>
+    <Id>11</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Sanchito</Nombre>
+    <Edad>17</Edad>
+    <Raza>gato</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Problemas estomacales
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>12</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Cujo</Nombre>
+    <Edad>3</Edad>
+    <Raza>Bulldog</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+tiene rabia
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>13</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Soy leyenda</Nombre>
+    <Edad>5</Edad>
+    <Raza>Ovejero aleman</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Tiene un par de rasguños 
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>14</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Cristi Aguilera</Nombre>
+    <Edad>2</Edad>
+    <Raza>Siames</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Hay que castrar
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>15</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Krillin</Nombre>
+    <Edad>10</Edad>
+    <Raza>Bulldog</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Se está quedando pelado
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>16</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Fatiga</Nombre>
+    <Edad>2</Edad>
+    <Raza>Ovejero Aleman</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Tiene fiakita
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>17</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Pikachu</Nombre>
+    <Edad>2</Edad>
+    <Raza>Amarillus maximus</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Tira descarga
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>18</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Indiana Jones</Nombre>
+    <Edad>4</Edad>
+    <Raza>Ovejero australiano</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Hiperactivo, desentierra muchas cosas
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>19</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Jaws</Nombre>
+    <Edad>10</Edad>
+    <Raza>Tiburón</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Come gente
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>20</Id>
+    <Tipo>Ñandú</Tipo>
+    <Nombre>Hedwig</Nombre>
+    <Edad>2</Edad>
+    <Raza>Buho</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Desaparece por un par de dias
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>21</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Yoshi</Nombre>
+    <Edad>2</Edad>
+    <Raza>Akita</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Se lastimó la pata de tanto saltar
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>23</Id>
+    <Tipo>Gato</Tipo>
+    <Nombre>Deja Vu</Nombre>
+    <Edad>2</Edad>
+    <Raza>negro</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+Aparece 2 veces en el mismo pasillo
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+  <Mascota>
+    <Id>24</Id>
+    <Tipo>Perro</Tipo>
+    <Nombre>Morfeo</Nombre>
+    <Edad>21</Edad>
+    <Raza>Labrador negro</Raza>
+    <Historial>Fecha: 5/6/2022 
+
+consumió pastilla roja
+
+------------------------------------ 
+
+</Historial>
+  </Mascota>
+</ArrayOfMascota>
